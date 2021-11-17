@@ -67,7 +67,7 @@ public class Login extends AppCompatActivity {
                             String[] data = new String[2];
                             data[0] = username;
                             data[1] = password;
-                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/login.php", "POST", field, data);
+                            PutData putData = new PutData("http://172.20.10.3/API-Eventastic/login.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
