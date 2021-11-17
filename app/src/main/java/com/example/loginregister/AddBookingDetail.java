@@ -16,10 +16,5 @@ public class AddBookingDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_booking_detail);
 
-        Toolbar toolbar = findViewById(R.id.main_toolbar);
-        setSupportActionBar(toolbar);
-
-        ActionBar myActionBar = getSupportActionBar();
-        myActionBar.setDisplayHomeAsUpEnabled(true);
     }
 }
