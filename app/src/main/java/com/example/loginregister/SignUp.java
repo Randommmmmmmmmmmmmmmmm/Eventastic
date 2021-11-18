@@ -75,7 +75,7 @@ public class SignUp extends AppCompatActivity {
                             data[1] = username;
                             data[2] = password;
                             data[3] = email;
-                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/signup.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.0.145/API-Eventastic/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
