@@ -97,11 +97,10 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
     public void onClick(View view) {
         Intent i;
         switch (view.getId()){
-            /*---case R.id.c1:
-                menunggu Chot punya booking
+            case R.id.c1:
                 i = new Intent(this,Booking.class);
                 startActivity(i);
-                break;---*/
+                break;
             case R.id.c2:
                 i = new Intent(this,GuestCrew.class);
                 startActivity(i);
