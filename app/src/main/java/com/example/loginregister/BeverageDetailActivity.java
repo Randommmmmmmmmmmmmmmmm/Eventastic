@@ -98,7 +98,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
         Intent i;
         switch (view.getId()){
             case R.id.c1:
-                i = new Intent(this,Booking.class);
+                i = new Intent(this,AddBookingDetail.class);
                 startActivity(i);
                 break;
             case R.id.c2:
