@@ -4,9 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.loginregister.adapter.BeverageRecyclerViewAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +19,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     LinearLayoutManager linearLayoutManager;
-
+    public FloatingActionButton buttonAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +27,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerView recyclerView = findViewById(R.id. recycler_view);
+
+        buttonAdd =findViewById(R.id.btnAddEvent);
+//        kirim = (Button) rootView.findViewById(R.id.kirim);
+
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            String name;
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this,InsertEventDetails.class);
+
+
+                startActivity(intent);
+
+
+
+            }
+        });
 
         linearLayoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(linearLayoutManager);
