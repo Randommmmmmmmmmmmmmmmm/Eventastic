@@ -1,433 +1,281 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddBookingDetail">
+    android:background="@drawable/background">
 
-    <ScrollView
-        style="@android:style/Widget.DeviceDefault.Light.ScrollView"
-        android:layout_width="427dp"
-        android:layout_height="725dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="40dp"
+        tools:context=".AddBookingDetail">
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="28dp"
+            android:layout_height="32dp"
+
+            android:background="@drawable/back_icon2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/booking"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/poppinsbold"
+            android:gravity="center"
+            android:text="Booking Details"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="jelly_bean" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/main_toolbar"
-                android:layout_width="430dp"
-                android:layout_height="156dp"
-                android:background="#F3FB91"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                tools:layout_editor_absoluteX="-2dp"
-                tools:layout_editor_absoluteY="-6dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bookingName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:hapticFeedbackEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/booking"
+            tools:layout_editor_absoluteX="7dp">
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="225dp"
-                android:layout_height="66dp"
-                android:text="Save Changes"
-                android:textColor="#040404"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:backgroundTint="#F5FAB5"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
-                app:layout_constraintVertical_bias="1.0" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/it_bookingName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
 
-            <LinearLayout
-                android:id="@+id/linearLayout3"
-                android:layout_width="361dp"
-                android:layout_height="66dp"
-                android:layout_marginTop="32dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail">
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="   Booking Name"
+                tools:targetApi="jelly_bean" />
 
-                <TextView
-                    android:id="@+id/tv_booking_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Booking Name :"
-                    android:textColor="#070707"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/tp_booking_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Dewan DECTAR UKM"
-                    android:inputType="textPersonName"
-                    android:textColor="#101010"
-                    android:textSize="16sp" />
-            </LinearLayout>
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="Category"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.173"
+            app:layout_constraintStart_toStartOf="@+id/bookingName"
+            app:layout_constraintTop_toBottomOf="@+id/bookingName" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout6"
-                android:layout_width="354dp"
-                android:layout_height="169dp"
-                android:layout_marginTop="32dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_contact_details">
+        <RadioGroup
+            android:id="@+id/rg_bookingCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            app:layout_constraintStart_toStartOf="@+id/tv_category"
+            app:layout_constraintTop_toBottomOf="@+id/tv_category">
 
-                <TextView
-                    android:id="@+id/tv_phone_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Phone Number :"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/tp_phone_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="#252525"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Email :"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/tp_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="#222121"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Address :"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/tp_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_payment"
+            <RadioButton
+                android:id="@+id/rb_venue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Payments"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Venue" />
 
-            <TextView
-                android:id="@+id/tv_contact_details"
+            <RadioButton
+                android:id="@+id/rb_food"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Contact Details"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.504"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Foods Catering" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton3"
+            <RadioButton
+                android:id="@+id/rb_entertainment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="28dp"
-                android:clickable="true"
-                app:backgroundTint="#F5FAB5"
-                app:layout_constraintBottom_toBottomOf="@+id/main_toolbar"
-                app:layout_constraintEnd_toEndOf="@+id/main_toolbar"
-                app:layout_constraintTop_toTopOf="@+id/main_toolbar"
-                app:layout_constraintVertical_bias="0.163"
-                app:srcCompat="@drawable/ic_baseline_delete_24" />
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Entertainments/Performances" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout5"
-                android:layout_width="356dp"
-                android:layout_height="193dp"
-                android:layout_marginTop="8dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.47"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
-
-                <TextView
-                    android:id="@+id/tv_notes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Notes :"
-                    android:textColor="#101010"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/tp_notes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="#0B0A0A"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_estimated"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Estimated Budget :"
-                    android:textColor="#020202"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/tp_estimated"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="RM 1500.00"
-                    android:inputType="textPersonName"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/tv_balance_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Balance :"
-                        android:textColor="#FA0A0A"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tv_balance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:hint="RM 855.00"
-                        android:text="TextView"
-                        android:textColor="#F80B0B"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout7"
-                android:layout_width="330dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="32dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.564"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_payment">
-
-                <TextView
-                    android:id="@+id/tv_booking_deposit"
-                    android:layout_width="278dp"
-                    android:layout_height="42dp"
-                    android:layout_weight="1"
-                    android:text="Booking Deposit :"
-                    android:textColor="#0B0B0B"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tp_booking_deposit"
-                    android:layout_width="320dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:hint="RM 000.00"
-                    android:textColor="#020202"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout4"
-                android:layout_width="355dp"
-                android:layout_height="285dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.48"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-                <TextView
-                    android:id="@+id/tv_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Category :"
-                    android:textColor="#070707"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <RadioButton
-                    android:id="@+id/rb_venue"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Venue"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <RadioButton
-                    android:id="@+id/rb_food"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Foods / Catering"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <RadioButton
-                    android:id="@+id/rb_entertainment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Entertainments / Performances ? Guest Artist / DJ"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <RadioButton
-                    android:id="@+id/rb_crew"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Crew Team"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <RadioButton
-                    android:id="@+id/rb_transportation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Transportation"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/tv_others"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Others :"
-                        android:textColor="#100F0F"
-                        android:textSize="16sp" />
-
-                    <EditText
-                        android:id="@+id/tp_others"
-                        android:layout_width="266dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="Other category"
-                        android:inputType="textPersonName"
-                        android:textColor="#0B0B0B"
-                        android:textSize="16sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btn_add_payment"
+            <RadioButton
+                android:id="@+id/rb_crewTeams"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="87dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="35dp"
-                android:layout_marginBottom="11dp"
-                android:clickable="true"
-                app:backgroundTint="#F5FAB5"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_payment"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
-                app:srcCompat="@drawable/ic_baseline_add_24" />
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Crew Teams" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btn_back_booking_detail"
+            <RadioButton
+                android:id="@+id/rb_transportation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:clickable="true"
-                app:backgroundTint="#F5FAB5"
-                app:layout_constraintBottom_toBottomOf="@+id/main_toolbar"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/main_toolbar"
-                app:layout_constraintVertical_bias="0.163"
-                app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Transportation" />
 
-            <TextView
-                android:id="@+id/tv_booking_detail"
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bookingNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rg_bookingCategory">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/it_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="   Notes"
+                tools:targetApi="jelly_bean" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bookingPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bookingNotes">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/it_payment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="   Payment (RM)"
+                tools:targetApi="jelly_bean" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <RadioGroup
+            android:id="@+id/rg_bookingPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_category"
+            app:layout_constraintTop_toBottomOf="@+id/bookingPayment">
+
+            <RadioButton
+                android:id="@+id/rb_paid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20sp"
-                android:text="Booking Details"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_toolbar" />
+                android:fontFamily="@font/poppinsbold"
+                android:text="Paid"
+                android:textColor="#8EBC8F" />
 
-            <TextView
-                android:id="@+id/tb_booking"
+            <RadioButton
+                android:id="@+id/rb_notPaid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BOOKING"
-                android:textColor="#0C0C0C"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/main_toolbar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="@+id/main_toolbar"
-                app:layout_constraintTop_toTopOf="@+id/main_toolbar"
-                app:layout_constraintVertical_bias="0.541" />
+                android:fontFamily="@font/poppinsbold"
+                android:text="Not Paid Yet"
+                android:textColor="#C39895" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_contactDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="Contact Details (Optional)"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_category"
+            app:layout_constraintTop_toBottomOf="@+id/rg_bookingPayment" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bookingContactPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hapticFeedbackEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/tv_contactDetails"
+            tools:layout_editor_absoluteX="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/it_bookingContactPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:inputType="phone"
+                android:hint="   Phone Number"
+                tools:targetApi="jelly_bean" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bookingContactEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hapticFeedbackEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/bookingContactPhoneNumber"
+            tools:layout_editor_absoluteX="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/it_bookingContactEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="   Email"
+                android:inputType="textEmailAddress"
+                tools:targetApi="jelly_bean" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_saveChanges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/poppinsbold"
+            android:hapticFeedbackEnabled="true"
+            android:text="Save Changes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bookingContactEmail" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
