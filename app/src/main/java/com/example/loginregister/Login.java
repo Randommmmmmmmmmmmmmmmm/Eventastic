@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         textInputEditTextUsername = findViewById(R.id.username);
-        textInputEditTextPassword = findViewById(R.id.password);
+        textInputEditTextPassword = findViewById(R.id.eventBudget);
         buttonLogin =findViewById(R.id.buttonLogin);
         textViewSignUp = findViewById(R.id.signUpText);
         progressBar = findViewById(R.id.progress);
@@ -67,7 +67,7 @@ public class Login extends AppCompatActivity {
                             String[] data = new String[2];
                             data[0] = username;
                             data[1] = password;
-                            PutData putData = new PutData("http://192.168.155.31/API-Eventastic/login.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.242.36/API-Eventastic/login.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);

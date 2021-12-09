@@ -27,6 +27,8 @@ public class AddBookingDetail extends AppCompatActivity {
     RadioGroup rg_bookingCategory, rg_Payment_status;
     RadioButton radioButtonCategory,radioButtonPaymentStatus;
     Button btn_saveChanges;
+    int id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,12 @@ public class AddBookingDetail extends AppCompatActivity {
         rg_bookingCategory = findViewById(R.id.rg_bookingCategory);
         rg_Payment_status = findViewById(R.id.rg_Payment_status);
 
+        if(savedInstanceState==null) {
+            Bundle extra = getIntent().getExtras();
+            id = extra.getInt("id");
+        }else{
+            id=(int)savedInstanceState.getSerializable("id");
+        }
 
 
         btn_saveChanges.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +86,7 @@ public class AddBookingDetail extends AppCompatActivity {
                         public void run() {
                             //Starting Write and Read data with URL
                             //Creating array for parameters
-                            String[] field = new String[9];
+                            String[] field = new String[10];
                             field[0] = "name";
                             field[1] = "category";
                             field[2] = "notes";
@@ -88,9 +96,10 @@ public class AddBookingDetail extends AppCompatActivity {
                             field[6] = "email";
                             field[7] = "process";
                             field[8] = "username";
+                            field[9] = "event_id";
 
                             //Creating array for data
-                            String[] data = new String[9];
+                            String[] data = new String[10];
                             data[0] = name;
                             data[1] = category;
                             data[2] = notes;
@@ -100,6 +109,7 @@ public class AddBookingDetail extends AppCompatActivity {
                             data[6] = email;
                             data[7] = "insert";
                             data[8] = "fanae";
+                            data[9] = String.valueOf(id);
                             PutData putData = new PutData("http://192.168.242.36/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
@@ -107,7 +117,7 @@ public class AddBookingDetail extends AppCompatActivity {
                                     String result = putData.getResult();
                                     if(result.equals("200")){
 
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                         finish();
 
                                     }else{

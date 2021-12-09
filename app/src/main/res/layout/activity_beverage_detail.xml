@@ -92,12 +92,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_eventName" />
 
             <TextView
-                android:id="@+id/textView7"
-                android:layout_width="244dp"
-                android:layout_height="22dp"
+                android:id="@+id/tv_countdown"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
                 android:fontFamily="@font/poppinsbold"
-                android:text="Days : Hours : Mins : Secs"
                 android:gravity="center"
+                android:text="Days : Hours : Mins : Secs"
                 android:textColor="#0C0C0C"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -113,7 +113,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7">
+                app:layout_constraintTop_toBottomOf="@+id/tv_countdown">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/c1"

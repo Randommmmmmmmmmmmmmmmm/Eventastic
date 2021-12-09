@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
     private List<Beverage> getallBeverageInfor(){
 
         List<Beverage> allBeverage = new ArrayList<Beverage>();
-        allBeverage.add(new Beverage("Event 1"/**, R.drawable.flat_white**/));
-        allBeverage.add(new Beverage("Event 2"/**, R.drawable.long_black**/));
-        allBeverage.add(new Beverage("Event 3"/**, R.drawable.latte_1**/));
+        allBeverage.add(new Beverage("Event 1",1));
+        allBeverage.add(new Beverage("Event 2",2));
+        allBeverage.add(new Beverage("Event 3",3));
 //        allBeverage.add(new Beverage("Latte"/**, R.drawable.latte_2**/));
 //        allBeverage.add(new Beverage("Long Black"/**, R.drawable.long_black_2**/));
 //

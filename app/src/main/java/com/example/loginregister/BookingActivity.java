@@ -23,14 +23,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookingActivity extends AppCompatActivity {
+
+    int id;
     LinearLayoutManager linearLayoutManager;
     RecyclerView recyclerView;
     List<Booking> allBookingInfor;
     public FloatingActionButton fbtn_createBooking;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
+
+
+        if(savedInstanceState==null) {
+            Bundle extra = getIntent().getExtras();
+            id = extra.getInt("id");
+        }else{
+            id=(int)savedInstanceState.getSerializable("id");
+        }
 
 
         recyclerView = findViewById(R.id. recycler_view);
@@ -56,6 +68,7 @@ public class BookingActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(BookingActivity.this,AddBookingDetail.class);
 
+                intent.putExtra("id", id);
 
                 startActivity(intent);
 
@@ -76,14 +89,16 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                String[] field = new String[2];
+                String[] field = new String[3];
                 field[0] = "username";
                 field[1] = "process";
+                field[2] = "event_id";
 
                 //Creating array for data
-                String[] data = new String[2];
+                String[] data = new String[3];
                 data[0] = "fanae";
                 data[1] = "list";
+                data[2] = String.valueOf(id);
                 PutData putData = new PutData("http://192.168.242.36/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
 
                 if (putData.startPut()) {

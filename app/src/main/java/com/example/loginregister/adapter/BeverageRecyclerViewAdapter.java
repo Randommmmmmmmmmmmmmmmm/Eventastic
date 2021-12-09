@@ -67,7 +67,7 @@ public class BeverageRecyclerViewAdapter extends RecyclerView.Adapter<BeverageRe
 //            Toast.makeText(view.getContext(),"Beverage Name: " + beverageList.get(getAdapterPosition()).getName(),Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(view.getContext(), InsertEventDetails.class);
-            intent.putExtra("beverageName", beverageList.get(getAdapterPosition()).getName());
+            intent.putExtra("event_id", beverageList.get(getAdapterPosition()).getId());
 
             view.getContext().startActivity(intent);
         }

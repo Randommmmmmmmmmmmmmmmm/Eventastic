@@ -2,10 +2,13 @@ package com.example.loginregister;
 //bok
 public class Beverage {
     String name;
-//    int image;
 
-    public Beverage(String name/**, int image**/) {
+    int id;
+
+//    int image;
+    public Beverage(String name, int id) {
         this.name = name;
+        this.id = id;
       //  this.image = image;
     }
 
@@ -15,6 +18,14 @@ public class Beverage {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 //    public int getImage() {

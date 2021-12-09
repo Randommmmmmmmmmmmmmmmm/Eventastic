@@ -1,12 +1,18 @@
 package com.example.loginregister;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.EventLog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -16,6 +22,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+
 //Sini Main Menu fana
 public class BeverageDetailActivity extends AppCompatActivity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
     //Variables
@@ -23,13 +40,55 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
     NavigationView navigationView;
     Toolbar toolbar;
 
-    public CardView card1,card2,card3,card4,card5;
+    //cerita countdown
 
+    long daycounter;
+    Calendar calendar;
+    Calendar currentdate;
+
+    //
+
+
+    TextView tv_eventName, tv_eventDate, tv_eventTime,tv_countdown;
+
+    public CardView card1,card2,card3,card4,card5;
+    String EventName, EventDate, EventTime, EventDateTime;
+    int id;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beverage_detail);
 
+        tv_eventName = findViewById(R.id.tv_eventName);
+        tv_eventDate = findViewById(R.id.tv_eventDate);
+        tv_eventTime = findViewById(R.id.tv_eventTime);
+        tv_countdown = findViewById(R.id.tv_countdown);
+
+
+//        tv_eventName.setText(extra.getString("event_name"));
+//        tv_eventDate.setText(extra.getString("event_date"));
+//        tv_eventTime.setText(extra.getString("event_time"));
+        if(savedInstanceState==null) {
+            Bundle extra = getIntent().getExtras();
+            id = extra.getInt("id");
+            EventName = extra.getString("event_name");
+            EventDate = extra.getString("event_date");
+            EventTime = extra.getString("event_time");
+
+            EventDateTime = EventDate+" "+EventTime;
+        }else{
+            id=(int)savedInstanceState.getSerializable("id");
+            EventName=(String)savedInstanceState.getSerializable("event_name");
+            EventDate=(String)savedInstanceState.getSerializable("event_date");
+            EventTime=(String)savedInstanceState.getSerializable("event_time");
+        }
+        tv_eventName.setText(EventName);
+        tv_eventDate.setText(EventDate);
+        tv_eventTime.setText(EventTime);
+
+//        Toast.makeText(getApplicationContext(), ""+EventName, Toast.LENGTH_LONG).show();
         /*---buttons/cardview---*/
         card1 = (CardView) findViewById(R.id.c1);
         card2 = (CardView) findViewById(R.id.c2);
@@ -64,7 +123,72 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
 
         navigationView.setCheckedItem(R.id.nav_home);
 
+
+        // calendar countdown ---------------------------------------------------------------------------
+
+        calendar = Calendar.getInstance(Locale.getDefault());
+        currentdate = Calendar.getInstance();
+        long time= System.currentTimeMillis();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+        LocalDateTime localDate = LocalDateTime.parse(EventDateTime, formatter);
+        long timeInMilliseconds = localDate.atOffset(ZoneOffset.UTC).toInstant().toEpochMilli();
+
+        Date mDate = new Date();
+//        try {
+//            mDate = sdf.parse(EventDateTime);
+//            long timeInMilliseconds = mDate.getTime();
+//            System.out.println("Date in milli :: " + timeInMilliseconds);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+
+
+
+            Long currentdateInMili= currentdate.getTimeInMillis();
+            daycounter = (timeInMilliseconds-currentdateInMili);
+
+            final long dy = TimeUnit.MILLISECONDS.toDays(daycounter);
+            final long hr = TimeUnit.MILLISECONDS.toHours(daycounter)
+                    - TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(daycounter));
+            final long min = TimeUnit.MILLISECONDS.toMinutes(daycounter)
+                    - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(daycounter));
+            final long sec = TimeUnit.MILLISECONDS.toSeconds(daycounter)
+                    - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(daycounter));
+
+
+
+            tv_countdown.setText(String.format("%d Days %d Hours %d Minutes %d Seconds", dy, hr, min, sec));
+//            tv_countdown.setText(sdf.format(mDate));
+//            tv_countdown.setText(EventDateTime);
+
+
+
+
+//            Toast.makeText(getApplicationContext(), "Anwar", Toast.LENGTH_LONG).show();
+
+
+//        new CountDownTimer(30000, 1000) {
+//
+//            public void onTick(long millisUntilFinished) {
+////                tv_countdown.setText("seconds remaining: " + millisUntilFinished / 1000);
+////                here you can have your logic to set text to edittext
+//            }
+//
+//            public void onFinish() {
+//                tv_countdown.setText("done!");
+//            }
+//
+//        }.start();
+
+// ------------------------------------------------------------------------------------------------------------------
+
+
     }
+
+
     /*---to avoid closing the application on Back pressed---*/
     @Override
     public void onBackPressed() {
@@ -85,6 +209,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 break;
                 case R.id.nav_booking:
                 intent = new Intent(BeverageDetailActivity.this, BookingActivity.class);
+                intent.putExtra("id", id);
                 startActivity(intent);
                 break;
                 case R.id.nav_venue:
@@ -114,6 +239,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
         switch (view.getId()){
             case R.id.c1:
                 i = new Intent(this, BookingActivity.class);
+                i.putExtra("id", id);
                 startActivity(i);
                 break;
             case R.id.c2:

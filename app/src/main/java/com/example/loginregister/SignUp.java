@@ -27,8 +27,8 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         textInputEditTextFullname = findViewById(R.id.eventName);
-        textInputEditTextUsername = findViewById(R.id.eventBudget);
-        textInputEditTextPassword = findViewById(R.id.password);
+        textInputEditTextUsername = findViewById(R.id.eventTime);
+        textInputEditTextPassword = findViewById(R.id.eventBudget);
         textInputEditTextEmail = findViewById(R.id.eventDate);
         buttonSignUp = findViewById(R.id.buttonCreateEvent);
         textViewLogin = findViewById(R.id.loginText);
@@ -73,7 +73,7 @@ public class SignUp extends AppCompatActivity {
                             data[1] = username;
                             data[2] = password;
                             data[3] = email;
-                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/signup.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.242.36/API-Eventastic/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
