@@ -17,12 +17,12 @@
         app:layout_constraintVertical_bias="0.239">
 
         <TextView
-            android:id="@+id/login"
+            android:id="@+id/tv_eventName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
             android:gravity="center"
-            android:text="@string/create_your_event_here"
+            android:text="@string/insert_your_event_details_here"
             android:textColor="@color/black"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login">
+            app:layout_constraintTop_toBottomOf="@+id/tv_eventName">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/eventName"
@@ -72,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
+                android:inputType="date"
                 android:drawableEnd="@drawable/ic_eventdate"
                 android:drawableRight="@drawable/ic_eventdate"
                 android:fontFamily="@font/poppinsmedium"
@@ -95,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
+                android:inputType="time"
                 android:drawableEnd="@drawable/ic_eventtime"
                 android:drawableRight="@drawable/ic_eventtime"
                 android:fontFamily="@font/poppinsmedium"
@@ -117,6 +119,7 @@
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:drawableEnd="@drawable/ic_eventbudget"
+                android:inputType="number"
                 android:drawableRight="@drawable/ic_pass"
                 android:fontFamily="@font/poppinsmedium"
                 tools:targetApi="jelly_bean" />
@@ -147,7 +150,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <Button
-            android:id="@+id/buttonCreateEvent"
+            android:id="@+id/buttonSaveChanges"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -155,7 +158,7 @@
             android:layout_marginTop="95dp"
             android:layout_marginEnd="161dp"
             android:layout_marginBottom="16dp"
-            android:text="@string/create"
+            android:text="@string/save_changes"
             app:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

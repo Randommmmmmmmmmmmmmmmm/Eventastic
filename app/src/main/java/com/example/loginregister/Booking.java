@@ -1,14 +1,45 @@
 package com.example.loginregister;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class Booking {
+    String name;
+    String category;
 
-import android.os.Bundle;
+    String paymentStatus;
 
-public class Booking extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking);
+
+    public Booking(String name, String category, String paymentStatus) {
+        this.name = name;
+        this.category = category;
+        this.paymentStatus = paymentStatus;
+
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+
+
+
 }

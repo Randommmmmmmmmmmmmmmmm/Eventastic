@@ -6,15 +6,13 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginregister.Beverage;
-import com.example.loginregister.BeverageDetailActivity;
+import com.example.loginregister.InsertEventDetails;
 import com.example.loginregister.R;
 
 import java.util.List;
@@ -59,16 +57,16 @@ public class BeverageRecyclerViewAdapter extends RecyclerView.Adapter<BeverageRe
         public BeverageViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            tvBeverageName = itemView.findViewById(R.id. tv_beverage_name);
+            tvBeverageName = itemView.findViewById(R.id.tv_name);
 //            imgViewBeverageImage = itemView.findViewById(R.id. img_beverage);
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(view.getContext(),"Beverage Name: " + beverageList.get(getAdapterPosition()).getName(),Toast.LENGTH_SHORT).show();
+//            Toast.makeText(view.getContext(),"Beverage Name: " + beverageList.get(getAdapterPosition()).getName(),Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(view.getContext(), BeverageDetailActivity.class);
+            Intent intent = new Intent(view.getContext(), InsertEventDetails.class);
             intent.putExtra("beverageName", beverageList.get(getAdapterPosition()).getName());
 
             view.getContext().startActivity(intent);

@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -81,11 +79,28 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Intent intent;
         switch (menuItem.getItemId()){
             case R.id.nav_home:
                 break;
-            case R.id.nav_venue:
-                Intent intent = new Intent(BeverageDetailActivity.this,Venue.class);
+                case R.id.nav_booking:
+                intent = new Intent(BeverageDetailActivity.this, BookingActivity.class);
+                startActivity(intent);
+                break;
+                case R.id.nav_venue:
+                intent = new Intent(BeverageDetailActivity.this,Venue.class);
+                startActivity(intent);
+                break;
+                case R.id.nav_ads:
+                intent = new Intent(BeverageDetailActivity.this,Advertisement.class);
+                startActivity(intent);
+                break;
+                case R.id.nav_gc:
+                intent = new Intent(BeverageDetailActivity.this,GuestCrew.class);
+                startActivity(intent);
+                break;
+                case R.id.nav_dashboard:
+                intent = new Intent(BeverageDetailActivity.this,Dashboard.class);
                 startActivity(intent);
                 break;
         }
@@ -98,7 +113,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
         Intent i;
         switch (view.getId()){
             case R.id.c1:
-                i = new Intent(this,AddBookingDetail.class);
+                i = new Intent(this, BookingActivity.class);
                 startActivity(i);
                 break;
             case R.id.c2:

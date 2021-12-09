@@ -14,7 +14,7 @@
         app:layout_constraintVertical_bias="0.4">
 
         <TextView
-            android:id="@+id/login"
+            android:id="@+id/tv_eventName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login">
+            app:layout_constraintTop_toBottomOf="@+id/tv_eventName">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/eventName"

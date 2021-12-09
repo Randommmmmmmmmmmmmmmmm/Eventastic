@@ -18,4 +18,6 @@
     <string name="event_time">Event Time</string>
     <string name="budget_rm">Budget(RM)</string>
     <string name="create">CREATE</string>
+    <string name="insert_your_event_details_here">Insert Your Event Details Here !</string>
+    <string name="save_changes">Save Changes</string>
 </resources>

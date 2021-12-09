@@ -19,7 +19,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     LinearLayoutManager linearLayoutManager;
-    public FloatingActionButton buttonAdd;
+//    public FloatingActionButton buttonAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,23 +28,23 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id. recycler_view);
 
-        buttonAdd =findViewById(R.id.btnAddEvent);
+//        buttonAdd =findViewById(R.id.btnAddEvent);
 //        kirim = (Button) rootView.findViewById(R.id.kirim);
 
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
-            String name;
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(MainActivity.this,InsertEventDetails.class);
-
-
-                startActivity(intent);
-
-
-
-            }
-        });
+//        buttonAdd.setOnClickListener(new View.OnClickListener() {
+//            String name;
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent intent = new Intent(MainActivity.this,InsertEventDetails.class);
+//
+//
+//                startActivity(intent);
+//
+//
+//
+//            }
+//        });
 
         linearLayoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
     private List<Beverage> getallBeverageInfor(){
 
         List<Beverage> allBeverage = new ArrayList<Beverage>();
-        allBeverage.add(new Beverage("Event"/**, R.drawable.flat_white**/));
-//        allBeverage.add(new Beverage("Long Black"/**, R.drawable.long_black**/));
-//        allBeverage.add(new Beverage("Latte"/**, R.drawable.latte_1**/));
+        allBeverage.add(new Beverage("Event 1"/**, R.drawable.flat_white**/));
+        allBeverage.add(new Beverage("Event 2"/**, R.drawable.long_black**/));
+        allBeverage.add(new Beverage("Event 3"/**, R.drawable.latte_1**/));
 //        allBeverage.add(new Beverage("Latte"/**, R.drawable.latte_2**/));
 //        allBeverage.add(new Beverage("Long Black"/**, R.drawable.long_black_2**/));
 //
