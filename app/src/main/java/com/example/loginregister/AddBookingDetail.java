@@ -110,7 +110,7 @@ public class AddBookingDetail extends AppCompatActivity {
                             data[7] = "insert";
                             data[8] = "fanae";
                             data[9] = String.valueOf(id);
-                            PutData putData = new PutData("http://192.168.242.36/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.43.18/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

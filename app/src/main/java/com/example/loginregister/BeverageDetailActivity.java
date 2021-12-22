@@ -113,7 +113,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
         /*---nav drawer menu---*/
         //Hide or show items
         Menu menu = navigationView.getMenu();
-        menu.findItem(R.id.nav_logout).setVisible(false);
+//        menu.findItem(R.id.nav_logout).setVisible(false);
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
@@ -226,6 +226,10 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 break;
                 case R.id.nav_dashboard:
                 intent = new Intent(BeverageDetailActivity.this,Dashboard.class);
+                startActivity(intent);
+                break;
+                case R.id.nav_log_out:
+                intent = new Intent(BeverageDetailActivity.this,Login.class);
                 startActivity(intent);
                 break;
         }

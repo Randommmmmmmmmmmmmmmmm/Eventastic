@@ -80,7 +80,7 @@ public class InsertEventDetails extends AppCompatActivity {
                 data[0] = "fanae";
                 data[1] = "list";
                 data[2] = String.valueOf(id);
-                PutData putData = new PutData("http://192.168.242.36/API-Eventastic/Event/updateEvent.php", "POST", field, data);
+                PutData putData = new PutData("http://192.168.43.18/API-Eventastic/Event/updateEvent.php", "POST", field, data);
 
                 if (putData.startPut()) {
 

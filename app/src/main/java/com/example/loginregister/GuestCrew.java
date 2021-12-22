@@ -9,6 +9,6 @@ public class GuestCrew extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guest_crew);
+//        setContentView(R.layout.activity_guest_crew);
     }
 }
