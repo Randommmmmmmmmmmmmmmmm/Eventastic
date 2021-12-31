@@ -1,5 +1,5 @@
-package com.example.loginregister;
-
+package com.example.loginregister.recyclerView;
+//Booking recyclerview
 public class Booking {
     String name;
     String category;

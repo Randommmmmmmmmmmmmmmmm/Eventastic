@@ -1,15 +1,12 @@
-package com.example.loginregister;
+package com.example.loginregister.CMainMenu;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.util.EventLog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -20,10 +17,15 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.loginregister.Advertisement;
+import com.example.loginregister.Dashboard;
+import com.example.loginregister.EGuestCrew.GuestCrew;
+import com.example.loginregister.ALoginRegister.Login;
+import com.example.loginregister.R;
+import com.example.loginregister.Venue;
+import com.example.loginregister.DBooking.BookingActivity;
 import com.google.android.material.navigation.NavigationView;
 
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -33,7 +35,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-//Sini Main Menu fana
+//Main Menu fana
 public class BeverageDetailActivity extends AppCompatActivity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
     //Variables
     DrawerLayout drawerLayout;
@@ -213,23 +215,24 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 startActivity(intent);
                 break;
                 case R.id.nav_venue:
-                intent = new Intent(BeverageDetailActivity.this,Venue.class);
+                intent = new Intent(BeverageDetailActivity.this, Venue.class);
                 startActivity(intent);
                 break;
                 case R.id.nav_ads:
-                intent = new Intent(BeverageDetailActivity.this,Advertisement.class);
+                intent = new Intent(BeverageDetailActivity.this, Advertisement.class);
                 startActivity(intent);
                 break;
                 case R.id.nav_gc:
-                intent = new Intent(BeverageDetailActivity.this,GuestCrew.class);
+                intent = new Intent(BeverageDetailActivity.this, GuestCrew.class);
+                intent.putExtra("id", id);
                 startActivity(intent);
                 break;
                 case R.id.nav_dashboard:
-                intent = new Intent(BeverageDetailActivity.this,Dashboard.class);
+                intent = new Intent(BeverageDetailActivity.this, Dashboard.class);
                 startActivity(intent);
                 break;
                 case R.id.nav_log_out:
-                intent = new Intent(BeverageDetailActivity.this,Login.class);
+                intent = new Intent(BeverageDetailActivity.this, Login.class);
                 startActivity(intent);
                 break;
         }
@@ -248,6 +251,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 break;
             case R.id.c2:
                 i = new Intent(this,GuestCrew.class);
+                i.putExtra("id", id);
                 startActivity(i);
                 break;
             case R.id.c3:

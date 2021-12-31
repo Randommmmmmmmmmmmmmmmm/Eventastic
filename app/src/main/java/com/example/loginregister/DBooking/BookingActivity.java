@@ -1,4 +1,4 @@
-package com.example.loginregister;
+package com.example.loginregister.DBooking;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.loginregister.adapter.bookingRecycleView;
+import com.example.loginregister.R;
+import com.example.loginregister.recyclerView.Booking;
+import com.example.loginregister.recyclerView.adapter.bookingRecycleView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
@@ -66,7 +67,7 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(BookingActivity.this,AddBookingDetail.class);
+                Intent intent = new Intent(BookingActivity.this, AddBookingDetail.class);
 
                 intent.putExtra("id", id);
 
@@ -99,7 +100,7 @@ public class BookingActivity extends AppCompatActivity {
                 data[0] = "fanae";
                 data[1] = "list";
                 data[2] = String.valueOf(id);
-                PutData putData = new PutData("http://172.20.10.13/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
 
                 if (putData.startPut()) {
 

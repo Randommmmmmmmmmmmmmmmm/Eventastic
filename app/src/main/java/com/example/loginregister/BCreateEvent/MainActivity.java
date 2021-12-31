@@ -1,21 +1,18 @@
-package com.example.loginregister;
+package com.example.loginregister.BCreateEvent;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.example.loginregister.adapter.BeverageRecyclerViewAdapter;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.loginregister.R;
+import com.example.loginregister.recyclerView.Beverage;
+import com.example.loginregister.recyclerView.adapter.BeverageRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-//bok
+//create event
 public class MainActivity extends AppCompatActivity {
 
     LinearLayoutManager linearLayoutManager;

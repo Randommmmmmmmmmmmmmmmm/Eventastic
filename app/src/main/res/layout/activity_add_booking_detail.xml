@@ -15,7 +15,7 @@
 
 
         android:padding="40dp"
-        tools:context=".AddBookingDetail">
+        tools:context=".DBooking.AddBookingDetail">
 
         <Button
             android:id="@+id/button5"
@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/booking"
+            android:id="@+id/tv_bookingDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:hapticFeedbackEnabled="true"
-            app:layout_constraintTop_toBottomOf="@+id/booking"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bookingDetails"
             tools:layout_editor_absoluteX="7dp">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -207,7 +207,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/poppinsmedium"
-            android:text="Contact Details (Optional)"
+            android:text="@string/contact_details_optional"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/tv_category"
             app:layout_constraintTop_toBottomOf="@+id/rg_Payment_status" />
@@ -262,7 +262,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btn_saveChanges"
+            android:id="@+id/btn_saveChangesGuest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"

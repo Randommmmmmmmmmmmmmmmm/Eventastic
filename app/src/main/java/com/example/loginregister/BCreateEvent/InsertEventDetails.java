@@ -1,4 +1,4 @@
-package com.example.loginregister;
+package com.example.loginregister.BCreateEvent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,14 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.loginregister.adapter.bookingRecycleView;
+import com.example.loginregister.CMainMenu.BeverageDetailActivity;
+import com.example.loginregister.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+//create event
 public class InsertEventDetails extends AppCompatActivity {
 
     TextInputEditText eventName,eventDate,eventTime,eventBudget;
@@ -52,7 +52,7 @@ public class InsertEventDetails extends AppCompatActivity {
         buttonSaveChanges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),BeverageDetailActivity.class);
+                Intent intent = new Intent(getApplicationContext(), BeverageDetailActivity.class);
                 intent.putExtra("id", id);
                 intent.putExtra("event_name", eventName.getText().toString());
                 intent.putExtra("event_date", eventDate.getText().toString());
@@ -80,7 +80,7 @@ public class InsertEventDetails extends AppCompatActivity {
                 data[0] = "fanae";
                 data[1] = "list";
                 data[2] = String.valueOf(id);
-                PutData putData = new PutData("http://172.20.10.13/API-Eventastic/Event/updateEvent.php", "POST", field, data);
+                PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Event/updateEvent.php", "POST", field, data);
 
                 if (putData.startPut()) {
 

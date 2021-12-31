@@ -1,5 +1,5 @@
-package com.example.loginregister;
-//bok
+package com.example.loginregister.recyclerView;
+//create event recyclerview
 public class Beverage {
     String name;
 

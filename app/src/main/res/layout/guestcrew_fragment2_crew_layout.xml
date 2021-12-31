@@ -1,39 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:orientation="vertical"
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-
-        tools:context=".DBooking.BookingActivity">
-
-        <TextView
-            android:id="@+id/bookingPage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:background="@drawable/rounded_edittext"
-            android:fontFamily="@font/poppinsbold"
-            android:gravity="center"
-            android:text="Booking"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:targetApi="jelly_bean" />
+        android:layout_height="match_parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fbtn_createBooking"
+            android:id="@+id/fbtn_createCrew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -49,12 +33,13 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
-            android:layout_width="297dp"
-            android:layout_height="487dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="305dp"
+            android:layout_height="531dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bookingPage" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -1,4 +1,4 @@
-package com.example.loginregister.adapter;
+package com.example.loginregister.recyclerView.adapter;
 
 
 import android.content.Context;
@@ -11,8 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.loginregister.Beverage;
-import com.example.loginregister.InsertEventDetails;
+import com.example.loginregister.recyclerView.Beverage;
+import com.example.loginregister.BCreateEvent.InsertEventDetails;
 import com.example.loginregister.R;
 
 import java.util.List;

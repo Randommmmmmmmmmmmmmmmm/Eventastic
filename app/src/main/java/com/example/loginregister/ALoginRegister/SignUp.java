@@ -1,4 +1,4 @@
-package com.example.loginregister;
+package com.example.loginregister.ALoginRegister;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,46 +11,49 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.loginregister.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 //bok
-//saja test
-public class Login extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
 
-    TextInputEditText textInputEditTextUsername, textInputEditTextPassword;
-    Button buttonLogin;
-    TextView textViewSignUp;
+    TextInputEditText textInputEditTextFullname, textInputEditTextUsername, textInputEditTextPassword, textInputEditTextEmail;
+    Button buttonSignUp;
+    TextView textViewLogin;
     ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_sign_up);
 
-        textInputEditTextUsername = findViewById(R.id.username);
+        textInputEditTextFullname = findViewById(R.id.eventName);
+        textInputEditTextUsername = findViewById(R.id.eventTime);
         textInputEditTextPassword = findViewById(R.id.eventBudget);
-        buttonLogin =findViewById(R.id.buttonLogin);
-        textViewSignUp = findViewById(R.id.signUpText);
+        textInputEditTextEmail = findViewById(R.id.eventDate);
+        buttonSignUp = findViewById(R.id.buttonCreateEvent);
+        textViewLogin = findViewById(R.id.loginText);
         progressBar = findViewById(R.id.progress);
 
-        textViewSignUp.setOnClickListener(new View.OnClickListener() {
+        textViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),SignUp.class);
+                Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 finish();
             }
         });
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 String fullname, username, password, email;
+                fullname = String.valueOf(textInputEditTextFullname.getText());
                 username = String.valueOf(textInputEditTextUsername.getText());
                 password = String.valueOf(textInputEditTextPassword.getText());
+                email = String.valueOf(textInputEditTextEmail.getText());
 
-
-                if(!username.equals("") && !password.equals("") ) {
+                if(!fullname.equals("") && !username.equals("") && !password.equals("") && !email.equals("") ) {
                     //Start ProgressBar first (Set visibility VISIBLE)
                     progressBar.setVisibility(View.VISIBLE);
                     Handler handler = new Handler();
@@ -59,23 +62,27 @@ public class Login extends AppCompatActivity {
                         public void run() {
                             //Starting Write and Read data with URL
                             //Creating array for parameters
-                            String[] field = new String[2];
-                            field[0] = "username";
-                            field[1] = "password";
+                            String[] field = new String[4];
+                            field[0] = "fullname";
+                            field[1] = "username";
+                            field[2] = "password";
+                            field[3] = "email";
 
                             //Creating array for data
-                            String[] data = new String[2];
-                            data[0] = username;
-                            data[1] = password;
-                            PutData putData = new PutData("http://172.20.10.13/API-Eventastic/login.php", "POST", field, data);
+                            String[] data = new String[4];
+                            data[0] = fullname;
+                            data[1] = username;
+                            data[2] = password;
+                            data[3] = email;
+                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
-                                    if(result.equals("Login Success")){
+                                    if(result.equals("Sign Up Success")){
 
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                        Intent intent = new Intent(getApplicationContext(),Login.class);
                                         startActivity(intent);
                                         finish();
 
@@ -93,5 +100,8 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+
+
+
     }
 }

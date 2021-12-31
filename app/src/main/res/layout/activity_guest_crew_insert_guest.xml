@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/background">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:padding="40dp"
+    tools:context=".EGuestCrew.GuestCrewInsertGuest">
+
+    <TextView
+        android:id="@+id/tv_guestDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rounded_edittext"
+        android:fontFamily="@font/poppinsbold"
+        android:gravity="center"
+        android:text="@string/guest_details"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="jelly_bean" />
+
+    <EditText
+        android:id="@+id/et_nameGuest"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/edit_text_shape"
+
+        android:hint="Name"
+        android:inputType=""
+        android:padding="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_guestDetails" />
+    <TextView
+        android:id="@+id/tv_genderGuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:text="@string/gender"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/et_nameGuest"
+        app:layout_constraintTop_toBottomOf="@+id/et_nameGuest" />
+
+    <RadioGroup
+        android:id="@+id/rg_genderGuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        app:layout_constraintStart_toStartOf="@+id/tv_genderGuest"
+        app:layout_constraintTop_toBottomOf="@+id/tv_genderGuest">
+
+        <RadioButton
+            android:id="@+id/rb_maleGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="@string/male" />
+
+        <RadioButton
+            android:id="@+id/rb_femaleGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="@string/female" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_categoryGuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:text="@string/category"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/rg_genderGuest"
+        app:layout_constraintTop_toBottomOf="@+id/rg_genderGuest" />
+
+    <RadioGroup
+        android:id="@+id/rg_categoryGuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        app:layout_constraintStart_toStartOf="@+id/tv_categoryGuest"
+        app:layout_constraintTop_toBottomOf="@+id/tv_categoryGuest">
+
+        <RadioButton
+            android:id="@+id/rb_adultGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsbold"
+            android:text="@string/adult"
+            android:textColor="@color/colorAccent"/>
+
+        <RadioButton
+            android:id="@+id/rb_teenGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsbold"
+            android:text="@string/teen"
+            android:textColor="#DD5A30"/>
+
+        <RadioButton
+            android:id="@+id/rb_childrenGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsbold"
+            android:text="@string/children"
+            android:textColor="#A31818"/>
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/et_noteGuest"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/edit_text_shape"
+
+        android:hint="@string/note"
+        android:inputType=""
+        android:padding="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rg_categoryGuest" />
+
+    <TextView
+        android:id="@+id/tv_progressGuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:text="@string/progress"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/rg_categoryGuest"
+        app:layout_constraintTop_toBottomOf="@+id/et_noteGuest" />
+
+    <RadioGroup
+        android:id="@+id/rg_progressGuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        app:layout_constraintStart_toStartOf="@+id/tv_progressGuest"
+        app:layout_constraintTop_toBottomOf="@+id/tv_progressGuest">
+
+        <RadioButton
+            android:id="@+id/rb_invitationSentGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsbold"
+            android:text="@string/invitation_sent"
+            android:textColor="@color/colorAccent"/>
+
+        <RadioButton
+            android:id="@+id/rb_invitationNotSentGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsbold"
+            android:text="@string/invitation_not_sent"
+            android:textColor="#DD5A30"/>
+
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/contactDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:text="@string/contact_details_optional"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/rg_progressGuest"
+        app:layout_constraintTop_toBottomOf="@+id/rg_progressGuest" />
+
+    <EditText
+        android:id="@+id/et_phoneNoGuestCrew"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+
+        android:background="@drawable/edit_text_shape"
+
+        android:hint="@string/phone_number"
+        android:inputType="number"
+        android:padding="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactDetails" />
+
+    <EditText
+        android:id="@+id/et_emailGuestCrew"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+
+        android:background="@drawable/edit_text_shape"
+
+        android:hint="@string/email_address"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_phoneNoGuestCrew" />
+
+    <EditText
+        android:id="@+id/et_addressGuestCrew"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+
+        android:background="@drawable/edit_text_shape"
+
+        android:hint="@string/address"
+        android:inputType="number"
+        android:padding="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_emailGuestCrew" />
+
+    <Button
+        android:id="@+id/btn_saveChangesGuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_edittext"
+        android:fontFamily="@font/poppinsbold"
+        android:hapticFeedbackEnabled="true"
+        android:text="Save Changes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_addressGuestCrew" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,19 +1,16 @@
-package com.example.loginregister;
+package com.example.loginregister.DBooking;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.loginregister.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
@@ -39,7 +36,7 @@ public class AddBookingDetail extends AppCompatActivity {
         it_payment = findViewById(R.id.it_payment);
         it_bookingContactPhoneNumber = findViewById(R.id.it_bookingContactPhoneNumber);
         it_bookingContactEmail = findViewById(R.id.it_bookingContactEmail);
-        btn_saveChanges = findViewById(R.id.btn_saveChanges);
+        btn_saveChanges = findViewById(R.id.btn_saveChangesGuest);
         rg_bookingCategory = findViewById(R.id.rg_bookingCategory);
         rg_Payment_status = findViewById(R.id.rg_Payment_status);
 
@@ -110,7 +107,7 @@ public class AddBookingDetail extends AppCompatActivity {
                             data[7] = "insert";
                             data[8] = "fanae";
                             data[9] = String.valueOf(id);
-                            PutData putData = new PutData("http://172.20.10.13/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

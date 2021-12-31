@@ -1,4 +1,4 @@
-package com.example.loginregister.adapter;
+package com.example.loginregister.recyclerView.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.loginregister.Booking;
+import com.example.loginregister.recyclerView.Booking;
 import com.example.loginregister.R;
 
 import java.util.List;
