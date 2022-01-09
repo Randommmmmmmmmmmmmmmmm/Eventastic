@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+
+
+        android:padding="40dp"
+        tools:context=".FVenue.AddVenueDetail">
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="28dp"
+            android:layout_height="32dp"
+
+            android:background="@drawable/back_icon2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_venueDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/poppinsbold"
+            android:gravity="center"
+            android:text="Venue Details"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="jelly_bean" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/venueName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:hapticFeedbackEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/tv_venueDetails"
+            tools:layout_editor_absoluteX="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_venueName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="   Venue Name"
+                tools:targetApi="jelly_bean" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/venueLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hapticFeedbackEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/venueName"
+            tools:layout_editor_absoluteX="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_venueLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="   Location"
+                tools:targetApi="jelly_bean" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/venueNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/venueLocation"
+            tools:layout_editor_absoluteX="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_venueNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="   Notes"
+                tools:targetApi="jelly_bean" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/venuePayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/venueNotes">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_venuePayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="   Payment (RM)"
+                android:inputType="number"
+                tools:targetApi="jelly_bean" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <RadioGroup
+            android:id="@+id/rg_Payment_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/venuePayment">
+
+            <RadioButton
+                android:id="@+id/rb_vpaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsbold"
+                android:text="Paid"
+                android:textColor="#8EBC8F" />
+
+            <RadioButton
+                android:id="@+id/rb_vnotPaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsbold"
+                android:text="Not Paid Yet"
+                android:textColor="#C39895" />
+
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_contactDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="@string/contact_details_optional"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rg_Payment_status" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/venueContactPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hapticFeedbackEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/tv_contactDetails"
+            tools:layout_editor_absoluteX="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_venuePhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="   Phone Number"
+                android:inputType="phone"
+                tools:targetApi="jelly_bean" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/venueContactEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hapticFeedbackEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/venueContactPhoneNumber"
+            tools:layout_editor_absoluteX="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_venueEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="   Email"
+                android:inputType="textEmailAddress"
+                tools:targetApi="jelly_bean" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/venueContactAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hapticFeedbackEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/venueContactEmail"
+            tools:layout_editor_absoluteX="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_venueAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="   Address"
+                android:inputType="textEmailAddress"
+                tools:targetApi="jelly_bean" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_saveChangesVenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/poppinsbold"
+            android:hapticFeedbackEnabled="true"
+            android:text="Save Changes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/venueContactAddress" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
