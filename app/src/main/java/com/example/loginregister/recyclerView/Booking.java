@@ -3,7 +3,6 @@ package com.example.loginregister.recyclerView;
 public class Booking {
     String name;
     String category;
-
     String paymentStatus;
 
 

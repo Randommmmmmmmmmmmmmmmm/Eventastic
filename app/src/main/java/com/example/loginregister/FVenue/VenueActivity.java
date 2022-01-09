@@ -1,4 +1,4 @@
-package com.example.loginregister.DBooking;
+package com.example.loginregister.FVenue;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.loginregister.R;
-import com.example.loginregister.recyclerView.Booking;
-import com.example.loginregister.recyclerView.adapter.bookingRecycleView;
+import com.example.loginregister.recyclerView.Venue;
+import com.example.loginregister.recyclerView.adapter.venueRecycleView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
@@ -23,19 +23,19 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookingActivity extends AppCompatActivity {
+public class VenueActivity extends AppCompatActivity {
 
     int id;
     LinearLayoutManager linearLayoutManager;
     RecyclerView recyclerView;
-    List<Booking> allBookingInfor;
-    public FloatingActionButton fbtn_createBooking;
+    List<Venue> allVenueInfor;
+    public FloatingActionButton fbtn_createVenue;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking);
+        setContentView(R.layout.activity_venue);
 
 
         if(savedInstanceState==null) {
@@ -48,26 +48,26 @@ public class BookingActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id. recycler_view);
 
-        linearLayoutManager = new LinearLayoutManager(BookingActivity.this);
+        linearLayoutManager = new LinearLayoutManager(VenueActivity.this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
-        allBookingInfor = getallBookingInfor();
+        allVenueInfor = getallVenueInfor();
 //        try {
-//            allBookingInfor = getallBookingInfor();
+//            allVenueInfor = getallVenueInfor();
 //        } catch (JSONException e) {
 //            e.printStackTrace();
 //        }
 
 
-        fbtn_createBooking =findViewById(R.id.fbtn_createBooking);
+        fbtn_createVenue =findViewById(R.id.fbtn_createVenue);
 
-        fbtn_createBooking.setOnClickListener(new View.OnClickListener() {
+        fbtn_createVenue.setOnClickListener(new View.OnClickListener() {
             String name;
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(BookingActivity.this, AddBookingDetail.class);
+                Intent intent = new Intent(VenueActivity.this, AddVenueDetail.class);
 
                 intent.putExtra("id", id);
 
@@ -78,12 +78,12 @@ public class BookingActivity extends AppCompatActivity {
             }
         });
     }
-    private List<Booking> getallBookingInfor()  {
+    private List<Venue> getallVenueInfor()  {
 
 
-        List<Booking> allBooking = new ArrayList<Booking>();
-//        allBooking.add(new Booking(obj.getString("name"), obj.getString("category"), obj.getString("payment_status")));
-//        allBooking.add(new Booking("name","category","payment_status"));
+        List<Venue> allVenue = new ArrayList<Venue>();
+//        allVenue.add(new Venue(obj.getString("name"), obj.getString("location"), obj.getString("payment_status")));
+//        allVenue.add(new Venue("name","location","payment_status"));
         //letak putdata
         Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -100,7 +100,7 @@ public class BookingActivity extends AppCompatActivity {
                 data[0] = "fanae";
                 data[1] = "list";
                 data[2] = String.valueOf(id);
-                PutData putData = new PutData("http://192.168.0.145/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                PutData putData = new PutData("http://192.168.0.145/API-Eventastic/Venue/VenueListView.php", "POST", field, data);
 
                 if (putData.startPut()) {
 
@@ -119,12 +119,12 @@ public class BookingActivity extends AppCompatActivity {
 
                                 for (int i = 0; i < array.length(); i++) {
                                     JSONObject obj = array.getJSONObject(i);
-                                    allBooking.add(new Booking(obj.getString("name"), obj.getString("category"), obj.getString("payment_status")));
-//                                    allBooking.add(new Booking("name","category","payment_status"));
-//                                    Toast.makeText(getApplicationContext(), String.valueOf(allBooking.get(i)), Toast.LENGTH_SHORT).show();
+                                    allVenue.add(new Venue(obj.getString("name"), obj.getString("location"), obj.getString("payment_status")));
+//                                    allVenue.add(new Venue("name","location","payment_status"));
+//                                    Toast.makeText(getApplicationContext(), String.valueOf(allVenue.get(i)), Toast.LENGTH_SHORT).show();
                                 }
-                                bookingRecycleView bookingRecycleView = new bookingRecycleView(BookingActivity.this,allBookingInfor);
-                                recyclerView.setAdapter(bookingRecycleView);
+                                venueRecycleView venueRecycleView = new venueRecycleView(VenueActivity.this,allVenueInfor);
+                                recyclerView.setAdapter(venueRecycleView);
 //                                recyclerView.notify();
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -138,7 +138,7 @@ public class BookingActivity extends AppCompatActivity {
             }
         });
 
-        return allBooking;
+        return allVenue;
 
     }
 }

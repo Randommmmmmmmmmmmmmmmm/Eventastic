@@ -1,11 +1,16 @@
 package com.example.loginregister.CMainMenu;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,12 +22,12 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.loginregister.Advertisement;
 import com.example.loginregister.Dashboard;
 import com.example.loginregister.EGuestCrew.GuestCrew;
 import com.example.loginregister.ALoginRegister.Login;
+import com.example.loginregister.FVenue.VenueActivity;
+import com.example.loginregister.GAds.AdsActivity;
 import com.example.loginregister.R;
-import com.example.loginregister.Venue;
 import com.example.loginregister.DBooking.BookingActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -50,6 +55,11 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
 
     //
 
+    //Tukar Image Banner
+    ImageView mImageView;
+    ImageButton mImageButton;
+    int SELECT_PICTURE = 200;
+
 
     TextView tv_eventName, tv_eventDate, tv_eventTime,tv_countdown;
 
@@ -68,10 +78,21 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
         tv_eventTime = findViewById(R.id.tv_eventTime);
         tv_countdown = findViewById(R.id.tv_countdown);
 
+        //VIEWS (tukar image banner)
+        mImageView = findViewById(R.id.imageView);
+        mImageButton = findViewById(R.id.imageButton3);
+        //handle button click
+        mImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageChooser();
+            }
+        });
 
 //        tv_eventName.setText(extra.getString("event_name"));
 //        tv_eventDate.setText(extra.getString("event_date"));
 //        tv_eventTime.setText(extra.getString("event_time"));
+
         if(savedInstanceState==null) {
             Bundle extra = getIntent().getExtras();
             id = extra.getInt("id");
@@ -190,6 +211,41 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
 
     }
 
+    // this function is triggered when
+    // the Select Image Button is clicked
+    void imageChooser() {
+
+        // create an instance of the
+        // intent of the type image
+        Intent i = new Intent();
+        i.setType("image/*");
+        i.setAction(Intent.ACTION_GET_CONTENT);
+
+        // pass the constant to compare it
+        // with the returned requestCode
+        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+    }
+
+    // this function is triggered when user
+    // selects the image from the imageChooser
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+
+            // compare the resultCode with the
+            // SELECT_PICTURE constant
+            if (requestCode == SELECT_PICTURE) {
+                // Get the url of the image from data
+                Uri selectedImageUri = data.getData();
+                if (null != selectedImageUri) {
+                    // update the preview image in the layout
+                    mImageView.setImageURI(selectedImageUri);
+                }
+            }
+        }
+    }
+
 
     /*---to avoid closing the application on Back pressed---*/
     @Override
@@ -215,11 +271,13 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 startActivity(intent);
                 break;
                 case R.id.nav_venue:
-                intent = new Intent(BeverageDetailActivity.this, Venue.class);
+                intent = new Intent(BeverageDetailActivity.this, VenueActivity.class);
+                intent.putExtra("id", id);
                 startActivity(intent);
                 break;
                 case R.id.nav_ads:
-                intent = new Intent(BeverageDetailActivity.this, Advertisement.class);
+                intent = new Intent(BeverageDetailActivity.this, AdsActivity.class);
+                intent.putExtra("id", id);
                 startActivity(intent);
                 break;
                 case R.id.nav_gc:
@@ -255,11 +313,13 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 startActivity(i);
                 break;
             case R.id.c3:
-                i = new Intent(this,Advertisement.class);
+                i = new Intent(this,AdsActivity.class);
+                i.putExtra("id", id);
                 startActivity(i);
                 break;
             case R.id.c4:
-                i = new Intent(this,Venue.class);
+                i = new Intent(this, VenueActivity.class);
+                i.putExtra("id", id);
                 startActivity(i);
                 break;
             case R.id.c5:

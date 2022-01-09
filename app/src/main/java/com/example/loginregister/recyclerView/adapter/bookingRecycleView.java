@@ -15,7 +15,6 @@ import com.example.loginregister.R;
 import java.util.List;
 
 public class bookingRecycleView extends RecyclerView.Adapter<bookingRecycleView.BookingViewHolder> {
-
     public List<Booking> bookingList;
     private Context context;
 

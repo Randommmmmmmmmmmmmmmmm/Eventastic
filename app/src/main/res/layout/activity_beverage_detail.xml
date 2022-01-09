@@ -38,11 +38,12 @@
                 app:layout_constraintHorizontal_bias="0.043"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:navigationIcon="@drawable/icons8_menu_24__1_" />
+                app:navigationIcon="@drawable/icons8_menu_24__1_">
+
+            </androidx.appcompat.widget.Toolbar>
 
             <LinearLayout
-
-                android:layout_width="435dp"
+                android:layout_width="match_parent"
                 android:layout_height="224dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
@@ -61,7 +62,21 @@
                     android:scaleType="fitXY"
                     android:visibility="visible"
                     app:srcCompat="@drawable/birthday" />
+
+
             </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_edit_24"
+                tools:ignore="VectorDrawableCompat" />
 
             <TextView
                 android:id="@+id/tv_eventName"
