@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.loginregister.R;
@@ -48,7 +49,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         List<Beverage> allBeverageInfor = getallBeverageInfor();
-        BeverageRecyclerViewAdapter beverageRecyclerViewAdapter = new BeverageRecyclerViewAdapter(MainActivity.this,allBeverageInfor);
+
+        Intent extra = getIntent();
+
+
+        BeverageRecyclerViewAdapter beverageRecyclerViewAdapter = new BeverageRecyclerViewAdapter(MainActivity.this,allBeverageInfor, extra.getStringExtra("username"));
         recyclerView.setAdapter(beverageRecyclerViewAdapter);
 
     }

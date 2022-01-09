@@ -1,6 +1,7 @@
 package com.example.loginregister.recyclerView.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.loginregister.DBooking.AddBookingDetail;
 import com.example.loginregister.recyclerView.Booking;
 import com.example.loginregister.R;
 
@@ -18,10 +20,13 @@ public class bookingRecycleView extends RecyclerView.Adapter<bookingRecycleView.
 
     public List<Booking> bookingList;
     private Context context;
+    String eventid;
+    String username;
 
-    public bookingRecycleView(Context context, List<Booking> bookingList) {
+    public bookingRecycleView(Context context, List<Booking> bookingList,String username) {
         this.context=context;
         this.bookingList= bookingList;
+        this.username = username;
     }
 
     @NonNull
@@ -38,7 +43,7 @@ public class bookingRecycleView extends RecyclerView.Adapter<bookingRecycleView.
 
         holder.tv_name.setText(bookingList.get(position).getName());
         holder.tv_bookingBategory.setText(bookingList.get(position).getCategory());
-        holder.tv_paymentStatus.setText(bookingList.get(position).getPaymentStatus());
+        holder.tv_paymentStatus.setText(bookingList.get(position).getPayment_status());
     }
 
     @Override
@@ -66,10 +71,14 @@ public class bookingRecycleView extends RecyclerView.Adapter<bookingRecycleView.
         public void onClick(View view) {
 //            Toast.makeText(view.getContext(),"Beverage Name: " + beverageList.get(getAdapterPosition()).getName(),Toast.LENGTH_SHORT).show();
 //
-//            Intent intent = new Intent(view.getContext(), InsertEventDetails.class);
+            Booking currentBooking = bookingList.get(getAdapterPosition());
+            Intent intent = new Intent(view.getContext(), AddBookingDetail.class);
+            intent.putExtra("id", bookingList.get(getAdapterPosition()).getEventid());
+            intent.putExtra("username", username);
+            intent.putExtra("edit", currentBooking);
 //            intent.putExtra("bookingName", bookingList.get(getAdapterPosition()).getName());
-//
-//            view.getContext().startActivity(intent);
+
+            view.getContext().startActivity(intent);
         }
     }
 }

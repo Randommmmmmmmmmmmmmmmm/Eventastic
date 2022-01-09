@@ -17,10 +17,10 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.loginregister.Advertisement;
 import com.example.loginregister.Dashboard;
 import com.example.loginregister.EGuestCrew.GuestCrew;
 import com.example.loginregister.ALoginRegister.Login;
+import com.example.loginregister.FAdvertisement.AdvertisementActivity;
 import com.example.loginregister.R;
 import com.example.loginregister.Venue;
 import com.example.loginregister.DBooking.BookingActivity;
@@ -56,6 +56,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
     public CardView card1,card2,card3,card4,card5;
     String EventName, EventDate, EventTime, EventDateTime;
     int id;
+    String username;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -78,6 +79,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
             EventName = extra.getString("event_name");
             EventDate = extra.getString("event_date");
             EventTime = extra.getString("event_time");
+            username = extra.getString("username");
 
             EventDateTime = EventDate+" "+EventTime;
         }else{
@@ -85,6 +87,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
             EventName=(String)savedInstanceState.getSerializable("event_name");
             EventDate=(String)savedInstanceState.getSerializable("event_date");
             EventTime=(String)savedInstanceState.getSerializable("event_time");
+            username=(String)savedInstanceState.getSerializable("username");
         }
         tv_eventName.setText(EventName);
         tv_eventDate.setText(EventDate);
@@ -212,6 +215,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 case R.id.nav_booking:
                 intent = new Intent(BeverageDetailActivity.this, BookingActivity.class);
                 intent.putExtra("id", id);
+                intent.putExtra("username", username);
                 startActivity(intent);
                 break;
                 case R.id.nav_venue:
@@ -219,7 +223,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 startActivity(intent);
                 break;
                 case R.id.nav_ads:
-                intent = new Intent(BeverageDetailActivity.this, Advertisement.class);
+                intent = new Intent(BeverageDetailActivity.this, AdvertisementActivity.class);
                 startActivity(intent);
                 break;
                 case R.id.nav_gc:
@@ -247,6 +251,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
             case R.id.c1:
                 i = new Intent(this, BookingActivity.class);
                 i.putExtra("id", id);
+                i.putExtra("username", username);
                 startActivity(i);
                 break;
             case R.id.c2:
@@ -255,7 +260,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 startActivity(i);
                 break;
             case R.id.c3:
-                i = new Intent(this,Advertisement.class);
+                i = new Intent(this,AdvertisementActivity.class);
                 startActivity(i);
                 break;
             case R.id.c4:

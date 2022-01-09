@@ -26,6 +26,7 @@ import java.util.List;
 public class BookingActivity extends AppCompatActivity {
 
     int id;
+    String username;
     LinearLayoutManager linearLayoutManager;
     RecyclerView recyclerView;
     List<Booking> allBookingInfor;
@@ -41,8 +42,10 @@ public class BookingActivity extends AppCompatActivity {
         if(savedInstanceState==null) {
             Bundle extra = getIntent().getExtras();
             id = extra.getInt("id");
+            username = extra.getString("username");
         }else{
             id=(int)savedInstanceState.getSerializable("id");
+            username=(String)savedInstanceState.getSerializable("username");
         }
 
 
@@ -70,6 +73,7 @@ public class BookingActivity extends AppCompatActivity {
                 Intent intent = new Intent(BookingActivity.this, AddBookingDetail.class);
 
                 intent.putExtra("id", id);
+                intent.putExtra("username", username);
 
                 startActivity(intent);
 
@@ -97,7 +101,7 @@ public class BookingActivity extends AppCompatActivity {
 
                 //Creating array for data
                 String[] data = new String[3];
-                data[0] = "fanae";
+                data[0] = username;
                 data[1] = "list";
                 data[2] = String.valueOf(id);
                 PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
@@ -115,22 +119,25 @@ public class BookingActivity extends AppCompatActivity {
 
 //                                JSONObject json = new JSONObject(result);
 //                                JSONArray array = json.getJSONArray("GetCitiesResult");
+
+                               System.out.println(result);
                                 JSONArray array = new JSONArray(result);
+
 
                                 for (int i = 0; i < array.length(); i++) {
                                     JSONObject obj = array.getJSONObject(i);
-                                    allBooking.add(new Booking(obj.getString("name"), obj.getString("category"), obj.getString("payment_status")));
+                                    allBooking.add(new Booking(obj.getString("booking_id"),obj.getString("event_id"),obj.getString("name"), obj.getString("category"),obj.getString("notes"),obj.getString("payment"), obj.getString("payment_status"), obj.getString("phone"), obj.getString("email")));
 //                                    allBooking.add(new Booking("name","category","payment_status"));
-//                                    Toast.makeText(getApplicationContext(), String.valueOf(allBooking.get(i)), Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(getApplicationContext(),obj.getString("booking_id"), Toast.LENGTH_SHORT).show();
                                 }
-                                bookingRecycleView bookingRecycleView = new bookingRecycleView(BookingActivity.this,allBookingInfor);
+                                bookingRecycleView bookingRecycleView = new bookingRecycleView(BookingActivity.this,allBookingInfor,username);
                                 recyclerView.setAdapter(bookingRecycleView);
 //                                recyclerView.notify();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         } else {
-                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

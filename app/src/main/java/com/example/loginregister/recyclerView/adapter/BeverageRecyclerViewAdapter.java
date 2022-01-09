@@ -21,10 +21,12 @@ public class BeverageRecyclerViewAdapter extends RecyclerView.Adapter<BeverageRe
 
     public List<Beverage> beverageList;
     private Context context;
+    public String username;
 
-    public BeverageRecyclerViewAdapter(Context context, List<Beverage> beverageList) {
+    public BeverageRecyclerViewAdapter(Context context, List<Beverage> beverageList, String username) {
         this.context=context;
         this.beverageList= beverageList;
+        this.username = username;
     }
 
     @NonNull
@@ -68,6 +70,7 @@ public class BeverageRecyclerViewAdapter extends RecyclerView.Adapter<BeverageRe
 
             Intent intent = new Intent(view.getContext(), InsertEventDetails.class);
             intent.putExtra("event_id", beverageList.get(getAdapterPosition()).getId());
+            intent.putExtra("username",username);
 
             view.getContext().startActivity(intent);
         }

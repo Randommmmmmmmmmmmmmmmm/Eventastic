@@ -39,6 +39,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SignUp.class);
+
                 startActivity(intent);
                 finish();
             }
@@ -78,6 +79,11 @@ public class Login extends AppCompatActivity {
 
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+
+                                        intent.putExtra("username", textInputEditTextUsername.getText().toString());
+
+
                                         startActivity(intent);
                                         finish();
 

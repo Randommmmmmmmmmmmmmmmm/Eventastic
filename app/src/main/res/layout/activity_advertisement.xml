@@ -13,28 +13,17 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
 
-
-        android:padding="40dp"
-        tools:context=".AddAdsDetail">
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="28dp"
-            android:layout_height="32dp"
-
-            android:background="@drawable/back_icon2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".FAdvertisement.AdvertisementActivity">
 
         <TextView
-            android:id="@+id/ads"
+            android:id="@+id/AdsPage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:background="@drawable/rounded_edittext"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="Advertisement Details"
+            android:text="Advertisement"
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,197 +32,29 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="jelly_bean" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/adsName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:hapticFeedbackEnabled="true"
-            app:layout_constraintTop_toBottomOf="@+id/ads"
-            tools:layout_editor_absoluteX="7dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_adsName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-
-                android:layout_marginRight="40dp"
-                android:background="@drawable/rounded_edittext"
-                android:fontFamily="@font/poppinsmedium"
-                android:hint="   Ads Name"
-                tools:targetApi="jelly_bean" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:id="@+id/tv_category"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fbtn_createAds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:fontFamily="@font/poppinsmedium"
-            android:text="Category"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.173"
-            app:layout_constraintStart_toStartOf="@+id/adsName"
-            app:layout_constraintTop_toBottomOf="@+id/adsName" />
 
-        <RadioGroup
-            android:id="@+id/rg_adsCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            app:layout_constraintStart_toStartOf="@+id/tv_category"
-            app:layout_constraintTop_toBottomOf="@+id/tv_category">
+            android:layout_marginTop="24dp"
 
-            <RadioButton
-                android:id="@+id/rb_poster"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppinsmedium"
-                android:text="Poster" />
+            android:layout_marginEnd="-30dp"
+            android:layout_marginBottom="19dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/recycler_view"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view"
+            app:srcCompat="@drawable/ic_baseline_add_24" />
 
-            <RadioButton
-                android:id="@+id/rb_banner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppinsmedium"
-                android:text="Banner" />
-
-            <RadioButton
-                android:id="@+id/rb_invitationcard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppinsmedium"
-                android:text="Invitation Card" />
-
-            <RadioButton
-                android:id="@+id/rb_otherads"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppinsmedium"
-                android:text="Others" />
-
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/textViewDate"
-            android:layout_width="106dp"
-            android:layout_height="29dp"
-            android:layout_marginTop="36dp"
-            android:fontFamily="@font/poppinsmedium"
-            android:text="Date"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/rg_adsCategory"
-            tools:layout_editor_absoluteX="57dp" />
-
-        <Button
-            android:id="@+id/datePickerButton"
-            style="?android:spinnerStyle"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
-            android:onClick="openDatePicker"
-            android:text="JAN 01 2021"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDate"
-            tools:layout_editor_absoluteX="56dp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/adsNotes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="297dp"
+            android:layout_height="487dp"
+            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/datePickerButton">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/it_notes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/rounded_edittext"
-                android:fontFamily="@font/poppinsmedium"
-                android:hint="   Notes"
-                tools:targetApi="jelly_bean" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/adsPayment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adsNotes">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/it_payment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/rounded_edittext"
-                android:fontFamily="@font/poppinsmedium"
-                android:hint="   Status"
-                android:inputType="number"
-                tools:targetApi="jelly_bean" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <RadioGroup
-            android:id="@+id/rg_Ads_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/tv_category"
-            app:layout_constraintTop_toBottomOf="@+id/adsPayment">
-
-            <RadioButton
-                android:id="@+id/rb_finished"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppinsbold"
-                android:text="Finished"
-                android:textColor="#8EBC8F" />
-
-            <RadioButton
-                android:id="@+id/rb_notfinished"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppinsbold"
-                android:text="Not Finished"
-                android:textColor="#C39895" />
-
-
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/btn_saveChangesGuest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/rounded_edittext"
-            android:fontFamily="@font/poppinsbold"
-            android:hapticFeedbackEnabled="true"
-            android:text="Save Changes"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rg_Ads_status"
-            tools:ignore="NotSibling" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/AdsPage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

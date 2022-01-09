@@ -23,6 +23,7 @@ public class InsertEventDetails extends AppCompatActivity {
     Button buttonSaveChanges;
 
     int id;
+    String username;
 
 
     @Override
@@ -41,8 +42,10 @@ public class InsertEventDetails extends AppCompatActivity {
             Bundle extra = getIntent().getExtras();
 
             id = extra.getInt("event_id");
+            username = extra.getString("username");
         }else{
             id=(int)savedInstanceState.getSerializable("event_id");
+            username=(String)savedInstanceState.getSerializable("username");
         }
 //        Toast.makeText(getApplicationContext(), ""+id, Toast.LENGTH_LONG).show();
         fetchInfo();
@@ -58,10 +61,61 @@ public class InsertEventDetails extends AppCompatActivity {
                 intent.putExtra("event_date", eventDate.getText().toString());
                 intent.putExtra("event_time", eventTime.getText().toString());
                 intent.putExtra("event_budget", eventBudget.getText().toString());
+                intent.putExtra("username", username);
                 startActivity(intent);
+                updateEventDetails();
             }
         });
     }
+
+    private void updateEventDetails() {
+
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+
+                String[] field = new String[7];
+                field[0] = "username";
+                field[1] = "process";
+                field[2] = "event_id";
+                field[3] = "event_name";
+                field[4] = "event_date";
+                field[5] = "event_time";
+                field[6] = "event_budget";
+
+                //Creating array for data
+                String[] data = new String[7];
+                data[0] = username;
+                data[1] = "insert";
+                data[2] = String.valueOf(id);
+                data[3] = eventName.getText().toString();
+                data[4] = eventDate.getText().toString();
+                data[5] = eventTime.getText().toString();
+                data[6] = eventBudget.getText().toString();
+                PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Event/updateEvent.php", "POST", field, data);
+
+                if (putData.startPut()) {
+
+                    if (putData.onComplete()) {
+//                progressBar.setVisibility(View.GONE);
+                        String result = putData.getResult();
+
+                        if (!result.equals("500")) {
+
+
+                        } else {
+                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+//        allBeverage.add(new Beverage("Event 1"/**, R.drawable.flat_white**/));
+            }
+        });
+
+
+    }
+
 
     protected void fetchInfo(){
 
@@ -77,7 +131,8 @@ public class InsertEventDetails extends AppCompatActivity {
 
                 //Creating array for data
                 String[] data = new String[3];
-                data[0] = "fanae";
+                // TODO TUKA FANAE
+                data[0] = username;
                 data[1] = "list";
                 data[2] = String.valueOf(id);
                 PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Event/updateEvent.php", "POST", field, data);

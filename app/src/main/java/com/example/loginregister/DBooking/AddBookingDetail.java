@@ -2,6 +2,7 @@ package com.example.loginregister.DBooking;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -11,20 +12,25 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.loginregister.R;
+import com.example.loginregister.recyclerView.Booking;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
-//choottt tapi tak boleh run emulator sebab tak boleh login
-//tak dpt check rupa interface
-//tak dpt link button
-//db tak function lagi
+
 public class AddBookingDetail extends AppCompatActivity {
 
     TextInputEditText et_bookingName, it_notes, it_payment, it_bookingContactPhoneNumber,it_bookingContactEmail;
     RadioGroup rg_bookingCategory, rg_Payment_status;
     RadioButton radioButtonCategory,radioButtonPaymentStatus;
     Button btn_saveChanges;
-    int id;
+    String id;
+    String username;
+
+    String process="insert";
+
+    Booking currentBooking;
+
+    Intent extra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +46,47 @@ public class AddBookingDetail extends AppCompatActivity {
         rg_bookingCategory = findViewById(R.id.rg_bookingCategory);
         rg_Payment_status = findViewById(R.id.rg_Payment_status);
 
-        if(savedInstanceState==null) {
-            Bundle extra = getIntent().getExtras();
-            id = extra.getInt("id");
-        }else{
-            id=(int)savedInstanceState.getSerializable("id");
-        }
+//        if(savedInstanceState==null) {
+
+            extra = getIntent();
+            id = extra.getStringExtra("id");
+
+//            Toast.makeText(getApplicationContext(),id,Toast.LENGTH_SHORT).show();
+
+
+            username = extra.getStringExtra("username");
+            if(extra.hasExtra("edit")){
+
+                process = "update";
+                currentBooking = (Booking) getIntent().getSerializableExtra("edit");
+
+                et_bookingName.setText(currentBooking.getName());
+                it_notes.setText(currentBooking.getNotes());
+                it_payment.setText(currentBooking.getPayment());
+                it_bookingContactPhoneNumber.setText(currentBooking.getPhone());
+                it_bookingContactEmail.setText(currentBooking.getEmail());
+
+                switch(currentBooking.getCategory()){
+                    case "Venue": rg_bookingCategory.check(rg_bookingCategory.getChildAt(0).getId()); break;
+                    case "Foods Catering": rg_bookingCategory.check(rg_bookingCategory.getChildAt(1).getId()); break;
+                    case "Entertainments/Performances": rg_bookingCategory.check(rg_bookingCategory.getChildAt(2).getId()); break;
+                    case "Crew Teams": rg_bookingCategory.check(rg_bookingCategory.getChildAt(3).getId()); break;
+                    case "Transportation": rg_bookingCategory.check(rg_bookingCategory.getChildAt(4).getId()); break;
+                }
+                switch(currentBooking.getPayment_status()){
+                    case "Paid": rg_Payment_status.check(rg_Payment_status.getChildAt(0).getId()); break;
+                    case "Not Paid Yet": rg_Payment_status.check(rg_Payment_status.getChildAt(1).getId()); break;
+
+                }
+
+            }
+
+//        }else{
+
+//            id=(int)savedInstanceState.getSerializable("id");
+//            username=(String)savedInstanceState.getSerializable("username");
+
+//        }
 
 
         btn_saveChanges.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +95,7 @@ public class AddBookingDetail extends AppCompatActivity {
 
                 //for radio group
 
-                String username, name, category, notes, payment, paymentStatus, phone, email ;
+                String name, category, notes, payment, paymentStatus, phone, email ;
 
                 int radioIdCategory = rg_bookingCategory.getCheckedRadioButtonId();
                 radioButtonCategory = findViewById(radioIdCategory);
@@ -75,6 +116,7 @@ public class AddBookingDetail extends AppCompatActivity {
 
 
                 if(!name.equals("") && !category.equals("") && !notes.equals("") && !payment.equals("") && !paymentStatus.equals("") ) {
+
                     //Start ProgressBar first (Set visibility VISIBLE)
 //                    progressBar.setVisibility(View.VISIBLE);
                     Handler handler = new Handler();
@@ -83,7 +125,7 @@ public class AddBookingDetail extends AppCompatActivity {
                         public void run() {
                             //Starting Write and Read data with URL
                             //Creating array for parameters
-                            String[] field = new String[10];
+                            String[] field = new String[11];
                             field[0] = "name";
                             field[1] = "category";
                             field[2] = "notes";
@@ -94,9 +136,10 @@ public class AddBookingDetail extends AppCompatActivity {
                             field[7] = "process";
                             field[8] = "username";
                             field[9] = "event_id";
+                            field[10] = "booking_id";
 
                             //Creating array for data
-                            String[] data = new String[10];
+                            String[] data = new String[11];
                             data[0] = name;
                             data[1] = category;
                             data[2] = notes;
@@ -104,9 +147,10 @@ public class AddBookingDetail extends AppCompatActivity {
                             data[4] = paymentStatus;
                             data[5] = phone;
                             data[6] = email;
-                            data[7] = "insert";
-                            data[8] = "fanae";
+                            data[7] = process;
+                            data[8] = username;
                             data[9] = String.valueOf(id);
+                            data[10] = currentBooking.getBookingid();
                             PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
