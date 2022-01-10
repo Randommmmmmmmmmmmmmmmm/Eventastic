@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.loginregister.R;
@@ -29,7 +31,8 @@ public class VenueActivity extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
     RecyclerView recyclerView;
     List<Venue> allVenueInfor;
-    public FloatingActionButton fbtn_createVenue;
+    Button fbtn_info;
+    FloatingActionButton fbtn_createVenue;
 
 
     @Override
@@ -37,6 +40,8 @@ public class VenueActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venue);
 
+        fbtn_info = findViewById(R.id.buttonVenueList);
+        fbtn_createVenue = findViewById(R.id.fbtn_createVenue);
 
         if(savedInstanceState==null) {
             Bundle extra = getIntent().getExtras();
@@ -60,14 +65,28 @@ public class VenueActivity extends AppCompatActivity {
 //        }
 
 
-        fbtn_createVenue =findViewById(R.id.fbtn_createVenue);
-
         fbtn_createVenue.setOnClickListener(new View.OnClickListener() {
             String name;
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(VenueActivity.this, AddVenueDetail.class);
+
+                intent.putExtra("id", id);
+
+                startActivity(intent);
+
+
+
+            }
+        });
+
+        fbtn_info.setOnClickListener(new View.OnClickListener() {
+            String name;
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(VenueActivity.this, VenueList.class);
 
                 intent.putExtra("id", id);
 

@@ -17,6 +17,15 @@
         <activity android:name=".EGuestCrew.GuestCrewInsertGuest"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
 
+        <activity android:name=".GAds.AdsActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+
+        <activity android:name=".GAds.AddAdsDetail"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+
+        <activity android:name=".FVenue.VenueList"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+
         <activity android:name=".EGuestCrew.GuestCrewInsertCrew"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
 
