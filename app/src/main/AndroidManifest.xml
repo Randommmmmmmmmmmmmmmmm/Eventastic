@@ -23,11 +23,11 @@
             android:theme="@style/Theme.Design.Light.NoActionBar" />
 
         <activity
-            android:name=".EGuestCrew.GuestCrewInsertGuest"
+            android:name=".EGuestCrew.Guest.GuestCrewInsertGuest"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
 
         <activity
-            android:name=".EGuestCrew.GuestCrewInsertCrew"
+            android:name=".EGuestCrew.Crew.GuestCrewInsertCrew"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
 
         <activity

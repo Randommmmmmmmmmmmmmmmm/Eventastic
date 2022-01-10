@@ -13,7 +13,7 @@ android:background="@drawable/background">
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
     android:padding="40dp"
-    tools:context=".EGuestCrew.GuestCrewInsertGuest">
+    tools:context=".EGuestCrew.Guest.GuestCrewInsertGuest">
 
     <TextView
         android:id="@+id/tv_guestDetails"
@@ -39,9 +39,9 @@ android:background="@drawable/background">
         android:background="@drawable/edit_text_shape"
 
         android:hint="Name"
-        android:inputType=""
-        android:padding="12dp"
+        android:inputType="text"
 
+        android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_guestDetails" />
@@ -127,15 +127,15 @@ android:background="@drawable/background">
     </RadioGroup>
 
     <EditText
-        android:id="@+id/et_noteGuest"
+        android:id="@+id/et_quantityGuest"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/edit_text_shape"
 
-        android:hint="@string/note"
-        android:inputType=""
-        android:padding="12dp"
+        android:hint="@string/quantity"
+        android:inputType="number"
 
+        android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rg_categoryGuest" />
@@ -149,7 +149,7 @@ android:background="@drawable/background">
         android:text="@string/progress"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/rg_categoryGuest"
-        app:layout_constraintTop_toBottomOf="@+id/et_noteGuest" />
+        app:layout_constraintTop_toBottomOf="@+id/et_quantityGuest" />
 
     <RadioGroup
         android:id="@+id/rg_progressGuest"
@@ -199,7 +199,7 @@ android:background="@drawable/background">
         android:background="@drawable/edit_text_shape"
 
         android:hint="@string/phone_number"
-        android:inputType="number"
+        android:inputType="number|phone"
         android:padding="12dp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -223,17 +223,17 @@ android:background="@drawable/background">
         app:layout_constraintTop_toBottomOf="@+id/et_phoneNoGuestCrew" />
 
     <EditText
-        android:id="@+id/et_addressGuestCrew"
+        android:id="@+id/et_notesGuestCrew"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
 
         android:background="@drawable/edit_text_shape"
 
-        android:hint="@string/address"
-        android:inputType="number"
-        android:padding="12dp"
+        android:hint="@string/note"
 
+        android:inputType="text"
+        android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_emailGuestCrew" />
@@ -249,7 +249,7 @@ android:background="@drawable/background">
         android:text="Save Changes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_addressGuestCrew" />
+        app:layout_constraintTop_toBottomOf="@+id/et_notesGuestCrew" />
 
 
 

@@ -59,7 +59,7 @@ public class BeverageRecyclerViewAdapter extends RecyclerView.Adapter<BeverageRe
         public BeverageViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            tvBeverageName = itemView.findViewById(R.id.tv_name);
+            tvBeverageName = itemView.findViewById(R.id.tv_nameCrew);
 //            imgViewBeverageImage = itemView.findViewById(R.id. img_beverage);
             itemView.setOnClickListener(this);
         }

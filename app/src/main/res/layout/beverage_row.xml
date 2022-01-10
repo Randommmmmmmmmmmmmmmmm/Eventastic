@@ -30,7 +30,7 @@
             app:srcCompat="@drawable/housee" />
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tv_nameCrew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#96FFFFFF"

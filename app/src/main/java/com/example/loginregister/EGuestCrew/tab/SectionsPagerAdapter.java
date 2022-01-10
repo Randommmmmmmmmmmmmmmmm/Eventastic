@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.loginregister.EGuestCrew.GuestCrewFragment1;
-import com.example.loginregister.EGuestCrew.GuestCrewFragment2;
+import com.example.loginregister.EGuestCrew.Guest.GuestCrewFragment1;
+import com.example.loginregister.EGuestCrew.Crew.GuestCrewFragment2;
 import com.example.loginregister.R;
 
 /**

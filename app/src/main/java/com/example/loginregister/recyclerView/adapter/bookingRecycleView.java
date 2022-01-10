@@ -60,9 +60,9 @@ public class bookingRecycleView extends RecyclerView.Adapter<bookingRecycleView.
 
             super(itemView);
 
-            tv_name = itemView.findViewById(R.id. tv_name);
-            tv_bookingBategory = itemView.findViewById(R.id. tv_bookingBategory);
-            tv_paymentStatus = itemView.findViewById(R.id.tv_paymentStatus);
+            tv_name = itemView.findViewById(R.id.tv_nameCrew);
+            tv_bookingBategory = itemView.findViewById(R.id.tv_crewProgress);
+            tv_paymentStatus = itemView.findViewById(R.id.tv_crewQuantity);
 
             itemView.setOnClickListener(this);
         }

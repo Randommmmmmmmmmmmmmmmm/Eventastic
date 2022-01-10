@@ -50,6 +50,7 @@
           android:drawableEnd="@drawable/ic_user"
           android:drawableRight="@drawable/ic_user"
           android:fontFamily="@font/poppinsmedium"
+          android:text="fanae"
           tools:targetApi="jelly_bean" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,6 +72,7 @@
           android:drawableEnd="@drawable/ic_pass"
           android:drawableRight="@drawable/ic_pass"
           android:fontFamily="@font/poppinsmedium"
+          android:text="suresh"
           tools:targetApi="jelly_bean" />
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -23,8 +23,9 @@ public class AddBookingDetail extends AppCompatActivity {
     RadioGroup rg_bookingCategory, rg_Payment_status;
     RadioButton radioButtonCategory,radioButtonPaymentStatus;
     Button btn_saveChanges;
-    String id;
+    int id;
     String username;
+    String bookingid;
 
     String process="insert";
 
@@ -49,16 +50,22 @@ public class AddBookingDetail extends AppCompatActivity {
 //        if(savedInstanceState==null) {
 
             extra = getIntent();
-            id = extra.getStringExtra("id");
+            id = extra.getIntExtra("id",0);
+
+
+
 
 //            Toast.makeText(getApplicationContext(),id,Toast.LENGTH_SHORT).show();
 
 
             username = extra.getStringExtra("username");
+
+
             if(extra.hasExtra("edit")){
 
                 process = "update";
                 currentBooking = (Booking) getIntent().getSerializableExtra("edit");
+                bookingid = currentBooking.getBookingid();
 
                 et_bookingName.setText(currentBooking.getName());
                 it_notes.setText(currentBooking.getNotes());
@@ -78,6 +85,10 @@ public class AddBookingDetail extends AppCompatActivity {
                     case "Not Paid Yet": rg_Payment_status.check(rg_Payment_status.getChildAt(1).getId()); break;
 
                 }
+
+            }else if(currentBooking==null){
+
+                bookingid = "0";
 
             }
 
@@ -150,7 +161,7 @@ public class AddBookingDetail extends AppCompatActivity {
                             data[7] = process;
                             data[8] = username;
                             data[9] = String.valueOf(id);
-                            data[10] = currentBooking.getBookingid();
+                            data[10] = bookingid;
                             PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {

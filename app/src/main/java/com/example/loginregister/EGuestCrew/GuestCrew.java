@@ -13,6 +13,7 @@ import com.example.loginregister.databinding.ActivityGuestCrewBinding;
 public class GuestCrew extends AppCompatActivity {
 
     int id;
+    String username;
     private ActivityGuestCrewBinding binding;
 
     @Override
@@ -22,8 +23,10 @@ public class GuestCrew extends AppCompatActivity {
         if(savedInstanceState==null) {
             Bundle extra = getIntent().getExtras();
             id = extra.getInt("id");
+            username = extra.getString("username");
         }else{
             id=(int)savedInstanceState.getSerializable("id");
+            username=(String)savedInstanceState.getSerializable("username");
         }
 
         binding = ActivityGuestCrewBinding.inflate(getLayoutInflater());

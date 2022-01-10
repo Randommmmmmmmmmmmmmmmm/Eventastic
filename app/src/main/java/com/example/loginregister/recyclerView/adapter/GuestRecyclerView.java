@@ -1,6 +1,7 @@
 package com.example.loginregister.recyclerView.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.loginregister.EGuestCrew.Guest.GuestCrewInsertGuest;
 import com.example.loginregister.R;
 import com.example.loginregister.recyclerView.Guest;
 
@@ -18,10 +20,12 @@ public class GuestRecyclerView extends RecyclerView.Adapter<GuestRecyclerView.Gu
 
     public List<Guest> GuestList;
     private Context context;
+    String username;
 
-    public GuestRecyclerView(Context context, List<Guest> GuestList) {
+    public GuestRecyclerView(Context context, List<Guest> GuestList,String username) {
         this.context=context;
         this.GuestList= GuestList;
+        this.username= username;
     }
 
     @NonNull
@@ -36,8 +40,9 @@ public class GuestRecyclerView extends RecyclerView.Adapter<GuestRecyclerView.Gu
     @Override
     public void onBindViewHolder(@NonNull GuestViewHolder holder, int position) {
 
-        holder.tv_name.setText(GuestList.get(position).getName());
-        holder.tv_paymentStatus.setText(GuestList.get(position).getPaymentStatus());
+        holder.tv_nameGuest.setText(GuestList.get(position).getName());
+        holder.tv_guestInvitation.setText(GuestList.get(position).getProgress());
+        holder.tv_guestQuantity.setText(GuestList.get(position).getQuantity());
     }
 
     @Override
@@ -47,15 +52,16 @@ public class GuestRecyclerView extends RecyclerView.Adapter<GuestRecyclerView.Gu
 
     public class GuestViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public TextView tv_name,tv_GuestBategory,tv_paymentStatus;
+        public TextView tv_nameGuest,tv_guestInvitation,tv_guestQuantity;
 
 
         public GuestViewHolder(@NonNull View itemView) {
 
             super(itemView);
 
-            tv_name = itemView.findViewById(R.id. tv_name);
-            tv_paymentStatus = itemView.findViewById(R.id.tv_paymentStatus);
+            tv_nameGuest = itemView.findViewById(R.id.tv_nameCrew);
+            tv_guestInvitation = itemView.findViewById(R.id.tv_crewProgress);
+            tv_guestQuantity = itemView.findViewById(R.id.tv_crewQuantity);
 
             itemView.setOnClickListener(this);
         }
@@ -64,10 +70,13 @@ public class GuestRecyclerView extends RecyclerView.Adapter<GuestRecyclerView.Gu
         public void onClick(View view) {
 //            Toast.makeText(view.getContext(),"Beverage Name: " + beverageList.get(getAdapterPosition()).getName(),Toast.LENGTH_SHORT).show();
 //
-//            Intent intent = new Intent(view.getContext(), InsertEventDetails.class);
-//            intent.putExtra("GuestName", GuestList.get(getAdapterPosition()).getName());
-//
-//            view.getContext().startActivity(intent);
+            Guest currentGuest = GuestList.get(getAdapterPosition());
+            Intent intent = new Intent(view.getContext(), GuestCrewInsertGuest.class);
+            intent.putExtra("id", GuestList.get(getAdapterPosition()).getEventid());
+            intent.putExtra("username", username);
+            intent.putExtra("edit", currentGuest);
+
+            view.getContext().startActivity(intent);
         }
     }
 }

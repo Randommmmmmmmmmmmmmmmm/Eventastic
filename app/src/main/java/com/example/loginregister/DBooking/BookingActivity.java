@@ -39,6 +39,7 @@ public class BookingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_booking);
 
 
+
         if(savedInstanceState==null) {
             Bundle extra = getIntent().getExtras();
             id = extra.getInt("id");
@@ -74,7 +75,7 @@ public class BookingActivity extends AppCompatActivity {
 
                 intent.putExtra("id", id);
                 intent.putExtra("username", username);
-
+                System.out.println(id+"NAMA SAYA SHAMEER NAMA SAYA SHAMEER NAMA SAYA SHAMEERNAMA SAYA SHAMEER NAMA SAYA SHAMEERNAMA SAYA SHAMEERNAMA SAYA SHAMEERNAMA SAYA SHAMEERNAMA SAYA SHAMEERNAMA SAYA SHAMEER");
                 startActivity(intent);
 
 

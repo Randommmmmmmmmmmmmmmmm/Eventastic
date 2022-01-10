@@ -4,6 +4,52 @@ import java.io.Serializable;
 
 //Booking recyclerview
 public class Booking implements Serializable {
+
+
+    String name;
+    String category;
+    String notes;
+    String payment;
+    String payment_status;
+    String phone;
+    String email;
+
+    String eventid;
+    String bookingid;
+
+
+
+
+    public Booking(String bookingid,String eventid,String name,String category,String notes,String payment,String payment_status,String phone,String email) {
+        this.name = name;
+        this.category = category;
+        this.notes = notes;
+        this.payment = payment;
+        this.payment_status = payment_status;
+        this.phone = phone;
+        this.email = email;
+
+        this.eventid = eventid;
+        this.bookingid = bookingid;
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public String getNotes() {
         return notes;
     }
@@ -44,16 +90,6 @@ public class Booking implements Serializable {
         this.email = email;
     }
 
-    String name;
-    String category;
-    String notes;
-    String payment;
-    String payment_status;
-    String phone;
-    String email;
-
-    String eventid;
-
     public String getBookingid() {
         return bookingid;
     }
@@ -62,10 +98,6 @@ public class Booking implements Serializable {
         this.bookingid = bookingid;
     }
 
-    String bookingid;
-
-
-
     public String getEventid() {
         return eventid;
     }
@@ -73,38 +105,4 @@ public class Booking implements Serializable {
     public void setEventid(String eventid) {
         this.eventid = eventid;
     }
-    public Booking(String bookingid,String eventid,String name,String category,String notes,String payment,String payment_status,String phone,String email) {
-        this.name = name;
-        this.category = category;
-        this.notes = notes;
-        this.payment = payment;
-        this.payment_status = payment_status;
-        this.phone = phone;
-        this.email = email;
-
-        this.eventid = eventid;
-        this.bookingid = bookingid;
-
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-
-
-
-
 }

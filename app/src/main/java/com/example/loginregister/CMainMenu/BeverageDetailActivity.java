@@ -229,6 +229,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 case R.id.nav_gc:
                 intent = new Intent(BeverageDetailActivity.this, GuestCrew.class);
                 intent.putExtra("id", id);
+                intent.putExtra("username", username);
                 startActivity(intent);
                 break;
                 case R.id.nav_dashboard:
@@ -257,6 +258,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
             case R.id.c2:
                 i = new Intent(this,GuestCrew.class);
                 i.putExtra("id", id);
+                i.putExtra("username", username);
                 startActivity(i);
                 break;
             case R.id.c3:
