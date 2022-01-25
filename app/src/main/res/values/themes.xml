@@ -12,15 +12,16 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-
     </style>
-
+    <style name="CollapsingToolbarLayoutExpandedTextStyle" parent="Theme.LoginRegister">
+        <item name="android:textColor">@android:color/transparent</item>
+        <item name="android:textSize">0sp</item>
+    </style>
     <style name="Theme.LoginRegister.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
     <style name="Theme.LoginRegister.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="Theme.LoginRegister.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

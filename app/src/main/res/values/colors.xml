@@ -9,7 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="linepurple">#BDB2DD</color>
 
-    <color name="colorAccent">#4CAF50</color>
+    <color name="colorPrimary">#262938</color>
+    <color name="colorPrimaryDark">#181A24</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorTransparentWhite">#CCCCCC</color>
 
 
 </resources>

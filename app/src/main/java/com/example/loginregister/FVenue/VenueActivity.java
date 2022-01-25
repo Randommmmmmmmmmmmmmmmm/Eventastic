@@ -9,9 +9,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.loginregister.DBooking.BookingActivity;
+import com.example.loginregister.FVenueList.VenueListActivity;
 import com.example.loginregister.R;
 import com.example.loginregister.recyclerView.Venue;
 import com.example.loginregister.recyclerView.adapter.venueRecycleView;
@@ -86,13 +87,9 @@ public class VenueActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(VenueActivity.this, VenueList.class);
-
+                Intent intent = new Intent(VenueActivity.this, VenueListActivity.class);
                 intent.putExtra("id", id);
-
                 startActivity(intent);
-
-
 
             }
         });

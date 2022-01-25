@@ -6,37 +6,28 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
+
     app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
     app:cardUseCompatPadding="true"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="401dp"
+        android:layout_height="100dp"
+        android:background="#27E91E63">
 
-        <ImageView
-            android:id="@+id/img_beverage"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="h,16:6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/booking" />
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#96FFFFFF"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
             android:text="Haqiem Rusli"
-            android:textColor="#212121"
-            android:textSize="30sp"
+            android:textColor="#323030"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/img_beverage"
             app:layout_constraintEnd_toEndOf="@+id/img_beverage"
@@ -51,8 +42,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
             android:layout_marginTop="11dp"
-            android:text="Performance/Entertainment"
             android:fontFamily="@font/poppinsmedium"
+            android:paddingLeft="20dp"
+            android:text="Performance/Entertainment"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
@@ -60,10 +53,14 @@
             android:id="@+id/tv_paymentStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="Paid"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/poppinsmedium"
+            android:text="Paid"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/tv_bookingBategory"
             app:layout_constraintTop_toTopOf="@+id/tv_bookingBategory" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
