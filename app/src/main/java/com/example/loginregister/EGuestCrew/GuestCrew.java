@@ -2,19 +2,18 @@ package com.example.loginregister.EGuestCrew;
 
 import android.os.Bundle;
 
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.loginregister.EGuestCrew.tab.SectionsPagerAdapter;
-import com.example.loginregister.databinding.ActivityGuestCrewBinding;
+import com.example.loginregister.databinding.EactivityGuestCrewBinding;
+import com.google.android.material.tabs.TabLayout;
 
 public class GuestCrew extends AppCompatActivity {
 
     int id;
     String username;
-    private ActivityGuestCrewBinding binding;
+    private EactivityGuestCrewBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,7 @@ public class GuestCrew extends AppCompatActivity {
             username=(String)savedInstanceState.getSerializable("username");
         }
 
-        binding = ActivityGuestCrewBinding.inflate(getLayoutInflater());
+        binding = EactivityGuestCrewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());

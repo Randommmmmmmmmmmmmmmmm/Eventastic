@@ -60,7 +60,7 @@
                     android:alpha="0.4"
                     android:scaleType="fitXY"
                     android:visibility="visible"
-                    app:srcCompat="@drawable/birthday" />
+                    app:srcCompat="@drawable/marginalia_special_date" />
             </LinearLayout>
 
             <TextView
@@ -110,7 +110,6 @@
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 android:padding="10dp"
-                android:background="#F3FFEB"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -196,7 +195,6 @@
                 android:layout_height="175dp"
                 android:orientation="horizontal"
                 android:padding="10dp"
-                android:background="#F3FFEB"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -281,7 +279,6 @@
                 android:layout_height="175dp"
                 android:orientation="horizontal"
                 android:padding="10dp"
-                android:background="#FFF3FFEB"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

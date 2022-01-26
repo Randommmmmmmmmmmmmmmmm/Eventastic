@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.loginregister.R;
 import com.example.loginregister.recyclerView.Crew;
-import com.example.loginregister.recyclerView.Guest;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class GuestCrewInsertCrew extends AppCompatActivity {
@@ -33,7 +32,7 @@ public class GuestCrewInsertCrew extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guest_crew_insert_crew);
+        setContentView(R.layout.eactivity_guest_crew_insert_crew);
         et_nameCrew = findViewById(R.id.et_nameCrew);
         et_quantityCrew = findViewById(R.id.et_quantityCrew);
         et_phoneNoGuestCrew = findViewById(R.id.et_phoneNoGuestCrew);
@@ -139,7 +138,7 @@ public class GuestCrewInsertCrew extends AppCompatActivity {
                         data[8] = username;
                         data[9] = String.valueOf(id);
                         data[10] = crewid;
-                        PutData putData = new PutData("http://192.168.209.31/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
+                        PutData putData = new PutData("http://192.168.43.16/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

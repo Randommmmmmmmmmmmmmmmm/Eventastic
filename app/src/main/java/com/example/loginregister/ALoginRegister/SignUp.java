@@ -25,7 +25,7 @@ public class SignUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.aactivity_sign_up);
 
         textInputEditTextFullname = findViewById(R.id.eventName);
         textInputEditTextUsername = findViewById(R.id.eventTime);
@@ -74,7 +74,7 @@ public class SignUp extends AppCompatActivity {
                             data[1] = username;
                             data[2] = password;
                             data[3] = email;
-                            PutData putData = new PutData("http://192.168.209.31/API-Eventastic/signup.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);

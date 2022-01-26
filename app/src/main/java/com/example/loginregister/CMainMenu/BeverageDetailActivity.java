@@ -17,11 +17,11 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.loginregister.FVenue.VenueActivity;
 import com.example.loginregister.HDashboard.Dashboard;
 import com.example.loginregister.EGuestCrew.GuestCrew;
 import com.example.loginregister.ALoginRegister.Login;
 
-import com.example.loginregister.FVenue.VenueActivity;
 import com.example.loginregister.GAds.AdsActivity;
 import com.example.loginregister.R;
 import com.example.loginregister.DBooking.BookingActivity;
@@ -63,7 +63,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_beverage_detail);
+        setContentView(R.layout.cactivity_beverage_detail);
 
         tv_eventName = findViewById(R.id.tv_eventName);
         tv_eventDate = findViewById(R.id.tv_eventDate);

@@ -31,7 +31,7 @@ public class GuestRecyclerView extends RecyclerView.Adapter<GuestRecyclerView.Gu
     @NonNull
     @Override
     public GuestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View Guest_row = LayoutInflater.from(parent.getContext()).inflate(R.layout.guest_row,null);
+        View Guest_row = LayoutInflater.from(parent.getContext()).inflate(R.layout.rguest_row,null);
 
         GuestViewHolder GuestVH = new GuestViewHolder(Guest_row);
         return GuestVH;

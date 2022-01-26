@@ -11,10 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginregister.EGuestCrew.Crew.GuestCrewInsertCrew;
-import com.example.loginregister.EGuestCrew.Guest.GuestCrewInsertGuest;
 import com.example.loginregister.R;
 import com.example.loginregister.recyclerView.Crew;
-import com.example.loginregister.recyclerView.Guest;
 
 import java.util.List;
 
@@ -33,7 +31,7 @@ public class CrewRecyclerView extends RecyclerView.Adapter<CrewRecyclerView.Crew
     @NonNull
     @Override
     public CrewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View Crew_row = LayoutInflater.from(parent.getContext()).inflate(R.layout.crew_row,null);
+        View Crew_row = LayoutInflater.from(parent.getContext()).inflate(R.layout.rcrew_row,null);
 
         CrewViewHolder CrewVH = new CrewViewHolder(Crew_row);
         return CrewVH;

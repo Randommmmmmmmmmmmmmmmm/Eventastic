@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.loginregister.R;
 import com.example.loginregister.recyclerView.Booking;
@@ -36,7 +35,7 @@ public class BookingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking);
+        setContentView(R.layout.dactivity_booking);
 
 
 
@@ -105,7 +104,7 @@ public class BookingActivity extends AppCompatActivity {
                 data[0] = username;
                 data[1] = "list";
                 data[2] = String.valueOf(id);
-                PutData putData = new PutData("http://192.168.209.31/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
 
                 if (putData.startPut()) {
 

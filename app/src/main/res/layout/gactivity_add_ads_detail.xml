@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,25 +16,15 @@
         android:padding="40dp"
         tools:context=".GAds.AddAdsDetail">
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="28dp"
-            android:layout_height="32dp"
-
-            android:background="@drawable/back_icon2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/tv_adsDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:background="@drawable/rounded_edittext"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
             android:text="Advertisement Details"
-            android:textColor="@color/black"
+            android:textColor="#E91E63"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -43,42 +32,35 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="jelly_bean" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/adsName"
+        <EditText
+            android:id="@+id/et_adsName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:hapticFeedbackEnabled="true"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+
+            android:background="@drawable/edit_text_shape"
+            android:hint="Ads Name"
+            android:inputType=""
+            android:padding="12dp"
+
+            android:textColorHint="#65E91E63"
             app:layout_constraintTop_toBottomOf="@+id/tv_adsDetails"
-            tools:layout_editor_absoluteX="7dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_adsName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-
-                android:layout_marginRight="40dp"
-                android:background="@drawable/rounded_edittext"
-                android:fontFamily="@font/poppinsmedium"
-                android:hint="   Ads Name"
-                tools:targetApi="jelly_bean" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            tools:layout_editor_absoluteX="40dp" />
 
         <TextView
             android:id="@+id/tv_adscategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/poppinsmedium"
             android:text="Category"
+            android:textColor="#65E91E63"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.173"
-            app:layout_constraintStart_toStartOf="@+id/adsName"
-            app:layout_constraintTop_toBottomOf="@+id/adsName" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_adsName"
+            app:layout_constraintTop_toBottomOf="@+id/et_adsName" />
 
         <RadioGroup
             android:id="@+id/rg_adsCategory"
@@ -125,37 +107,43 @@
 
         </RadioGroup>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/adsNotes"
+        <EditText
+            android:id="@+id/et_adsNotes"
             android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+
+            android:background="@drawable/edit_text_shape"
+            android:hint="Notes"
+            android:inputType=""
+            android:padding="12dp"
+
+            android:textColorHint="#65E91E63"
+            app:layout_constraintTop_toBottomOf="@+id/rg_adsCategory"
+            tools:layout_editor_absoluteX="40dp" />
+
+        <TextView
+            android:id="@+id/tv_adsStatus"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="Status"
+            android:textColor="#65E91E63"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rg_adsCategory">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_adsNotes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/rounded_edittext"
-                android:fontFamily="@font/poppinsmedium"
-                android:hint="   Notes"
-                tools:targetApi="jelly_bean" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_adscategory"
+            app:layout_constraintTop_toBottomOf="@+id/et_adsNotes" />
 
         <RadioGroup
             android:id="@+id/rg_Ads_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="@+id/tv_adscategory"
-            app:layout_constraintTop_toBottomOf="@+id/adsNotes">
+            app:layout_constraintTop_toBottomOf="@+id/tv_adsStatus">
 
             <RadioButton
                 android:id="@+id/rb_finished"
@@ -163,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsbold"
                 android:text="Finished"
-                android:textColor="#8EBC8F" />
+                android:textColor="#18C11C" />
 
             <RadioButton
                 android:id="@+id/rb_notFinished"
@@ -171,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsbold"
                 android:text="Not Finished"
-                android:textColor="#C39895" />
+                android:textColor="#DA0710" />
 
 
         </RadioGroup>
@@ -185,6 +173,8 @@
             android:fontFamily="@font/poppinsbold"
             android:hapticFeedbackEnabled="true"
             android:text="Save Changes"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#E91E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rg_Ads_status" />

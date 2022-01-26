@@ -27,7 +27,7 @@ public class adsRecycleView extends RecyclerView.Adapter<adsRecycleView.AdsViewH
     @NonNull
     @Override
     public AdsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View ads_row = LayoutInflater.from(parent.getContext()).inflate(R.layout.ads_row,null);
+        View ads_row = LayoutInflater.from(parent.getContext()).inflate(R.layout.rads_row,null);
 
         AdsViewHolder adsVH = new AdsViewHolder(ads_row);
         return adsVH;

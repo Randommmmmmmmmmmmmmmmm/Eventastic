@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.example.loginregister.R;
 import com.example.loginregister.recyclerView.Booking;
-import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 
@@ -37,7 +36,7 @@ public class AddBookingDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_booking_detail);
+        setContentView(R.layout.dactivity_add_booking_detail);
 
         et_bookingName = findViewById(R.id.et_bookingName);
         it_notes = findViewById(R.id.it_notes);
@@ -163,7 +162,7 @@ public class AddBookingDetail extends AppCompatActivity {
                             data[8] = username;
                             data[9] = String.valueOf(id);
                             data[10] = bookingid;
-                            PutData putData = new PutData("http://192.168.209.31/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

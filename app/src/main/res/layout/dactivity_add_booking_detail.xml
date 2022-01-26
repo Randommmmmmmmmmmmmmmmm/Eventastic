@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F3FFEB">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
             android:text="Booking Details"
-            android:textColor="#359783"
+            android:textColor="#E91E63"
 
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,8 +42,9 @@
             android:background="@drawable/edit_text_shape"
             android:hint="Booking Name"
             android:inputType=""
-
             android:padding="12dp"
+
+            android:textColorHint="#65E91E63"
             app:layout_constraintTop_toBottomOf="@+id/tv_bookingDetails"
             tools:layout_editor_absoluteX="40dp" />
 
@@ -52,10 +52,12 @@
             android:id="@+id/tv_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+
             android:layout_marginTop="16dp"
-            android:background="@color/white"
             android:fontFamily="@font/poppinsmedium"
             android:text="Category"
+            android:textColor="#65E91E63"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -67,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@color/white"
+
             app:layout_constraintStart_toStartOf="@+id/tv_category"
             app:layout_constraintTop_toBottomOf="@+id/tv_category">
 
@@ -117,8 +119,9 @@
             android:background="@drawable/edit_text_shape"
             android:hint="Notes"
             android:inputType=""
-
             android:padding="12dp"
+
+            android:textColorHint="#65E91E63"
             app:layout_constraintTop_toBottomOf="@+id/rg_bookingCategory"
             tools:layout_editor_absoluteX="40dp" />
 
@@ -131,8 +134,9 @@
             android:background="@drawable/edit_text_shape"
             android:hint="Payment"
             android:inputType=""
-
             android:padding="12dp"
+
+            android:textColorHint="#65E91E63"
             app:layout_constraintTop_toBottomOf="@+id/it_notes"
             tools:layout_editor_absoluteX="40dp" />
 
@@ -140,14 +144,15 @@
             android:id="@+id/tv_paymentStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_marginTop="16dp"
-            android:background="@color/white"
             android:fontFamily="@font/poppinsmedium"
             android:text="Status"
+            android:textColor="#65E91E63"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/it_payment"
+            app:layout_constraintStart_toStartOf="@+id/tv_category"
             app:layout_constraintTop_toBottomOf="@+id/it_payment" />
 
         <RadioGroup
@@ -155,7 +160,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@color/white"
+
             app:layout_constraintStart_toStartOf="@+id/tv_category"
             app:layout_constraintTop_toBottomOf="@+id/tv_paymentStatus">
 
@@ -165,7 +170,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsbold"
                 android:text="Paid"
-                android:textColor="#8EBC8F" />
+                android:textColor="#18C11C" />
 
             <RadioButton
                 android:id="@+id/rb_notPaid"
@@ -173,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsbold"
                 android:text="Not Paid Yet"
-                android:textColor="#C39895" />
+                android:textColor="#DA0710" />
 
 
         </RadioGroup>
@@ -186,7 +191,7 @@
             android:fontFamily="@font/poppinsmedium"
             android:text="@string/contact_details_optional"
             android:textSize="16sp"
-            android:textColor="#359783"
+            android:textColor="#E91E63"
             app:layout_constraintStart_toStartOf="@+id/tv_category"
             app:layout_constraintTop_toBottomOf="@+id/rg_Payment_status" />
 
@@ -230,7 +235,7 @@
             android:hapticFeedbackEnabled="true"
             android:text="Save Changes"
             android:textColor="@color/white"
-            app:backgroundTint="#359783"
+            app:backgroundTint="#E91E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/it_bookingContactEmail" />

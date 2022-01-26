@@ -4,33 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3FFEB"
-    tools:context=".BCreateEvent.InsertEventDetails">
+    android:background="#FFFFFF"
+    tools:context=".ALoginRegister.SignUp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.239">
-
-        <TextView
-            android:id="@+id/tv_eventName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
-            android:gravity="center"
-            android:text="@string/insert_your_event_details_here"
-            android:textColor="#359783"
-            android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:targetApi="jelly_bean" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_eventName"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutFullname"
@@ -39,7 +23,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="30dp"
-            android:hint="@string/event_name"
+            android:hint="@string/fullname"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +34,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
-                android:drawableEnd="@drawable/ic_eventname"
-                android:drawableRight="@drawable/ic_eventname"
+                android:drawableEnd="@drawable/ic_name"
+                android:drawableRight="@drawable/ic_name"
                 android:fontFamily="@font/poppinsmedium"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -62,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:hint="@string/event_date"
+            android:hint="@string/email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,9 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
-                android:inputType="date"
-                android:drawableEnd="@drawable/ic_eventdate"
-                android:drawableRight="@drawable/ic_eventdate"
+                android:drawableEnd="@drawable/ic_email"
+                android:drawableRight="@drawable/ic_email"
                 android:fontFamily="@font/poppinsmedium"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -86,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:hint="@string/event_time"
+            android:hint="@string/username"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -97,9 +80,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
-                android:inputType="time"
-                android:drawableEnd="@drawable/ic_eventtime"
-                android:drawableRight="@drawable/ic_eventtime"
+                android:drawableEnd="@drawable/ic_user"
+                android:drawableRight="@drawable/ic_user"
                 android:fontFamily="@font/poppinsmedium"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -110,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:hint="@string/budget_rm"
+            android:hint="@string/password"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUsername"
             tools:layout_editor_absoluteX="0dp">
 
@@ -119,8 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
-                android:drawableEnd="@drawable/ic_eventbudget"
-                android:inputType="number"
+                android:drawableEnd="@drawable/ic_pass"
                 android:drawableRight="@drawable/ic_pass"
                 android:fontFamily="@font/poppinsmedium"
                 tools:targetApi="jelly_bean" />
@@ -135,36 +116,52 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword" />
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="409dp"
-        android:layout_height="159dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="217dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
         <Button
-            android:id="@+id/buttonSaveChanges"
+            android:id="@+id/buttonCreateEvent"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="95dp"
-            android:layout_marginEnd="161dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/save_changes"
-            app:backgroundTint="#359783"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="10dp"
+            android:text="@string/signup"
+            app:backgroundTint="#E91E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/progress" />
+
+        <TextView
+            android:id="@+id/loginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="@string/loginhere"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonCreateEvent"
+            tools:targetApi="jelly_bean" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="405dp"
+        android:layout_height="247dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/signup" />
+
+    <TextView
+        android:id="@+id/tv_eventName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppinsbold"
+        android:gravity="center"
+        android:text="@string/signup"
+        android:textColor="#E91E63"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        tools:layout_editor_absoluteX="0dp"
+        tools:targetApi="jelly_bean" />
 </androidx.constraintlayout.widget.ConstraintLayout>

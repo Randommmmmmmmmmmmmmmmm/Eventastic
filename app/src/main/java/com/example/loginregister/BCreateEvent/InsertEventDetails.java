@@ -29,7 +29,7 @@ public class InsertEventDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insert_event_details);
+        setContentView(R.layout.bactivity_insert_event_details);
 
 
         eventName =findViewById(R.id.eventName);
@@ -93,7 +93,7 @@ public class InsertEventDetails extends AppCompatActivity {
                 data[4] = eventDate.getText().toString();
                 data[5] = eventTime.getText().toString();
                 data[6] = eventBudget.getText().toString();
-                PutData putData = new PutData("http://192.168.209.31/API-Eventastic/Event/updateEvent.php", "POST", field, data);
+                PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Event/updateEvent.php", "POST", field, data);
 
                 if (putData.startPut()) {
 
@@ -131,11 +131,11 @@ public class InsertEventDetails extends AppCompatActivity {
 
                 //Creating array for data
                 String[] data = new String[3];
-                // TODO TUKA FANAE
+                //TODO TUKA FANAE
                 data[0] = username;
                 data[1] = "list";
                 data[2] = String.valueOf(id);
-                PutData putData = new PutData("http://192.168.209.31/API-Eventastic/Event/updateEvent.php", "POST", field, data);
+                PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Event/updateEvent.php", "POST", field, data);
 
                 if (putData.startPut()) {
 

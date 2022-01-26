@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -11,13 +12,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.loginregister.R;
-import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 
 public class AddAdsDetail extends AppCompatActivity {
 
-    TextInputEditText et_adsName, et_adsNotes;
+    EditText et_adsName, et_adsNotes;
     RadioGroup rg_adsCategory, rg_Ads_status;
     RadioButton radioButtonAdsCategory,radioButtonAdsStatus;
     Button btn_saveChangesAds;
@@ -26,7 +26,7 @@ public class AddAdsDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_ads_detail);
+        setContentView(R.layout.gactivity_add_ads_detail);
 
         et_adsName = findViewById(R.id.et_adsName);
         et_adsNotes = findViewById(R.id.et_adsNotes);
@@ -93,7 +93,7 @@ public class AddAdsDetail extends AppCompatActivity {
                             data[4] = "insert";
                             data[5] = "fanae";
                             data[6] = String.valueOf(id);
-                            PutData putData = new PutData("http://192.168.0.145/API-Eventastic/Ads/AdsListView.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Ads/AdsListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

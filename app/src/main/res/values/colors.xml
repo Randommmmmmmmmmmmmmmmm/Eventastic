@@ -10,6 +10,7 @@
     <color name="linepurple">#BDB2DD</color>
 
     <color name="colorAccent">#4CAF50</color>
+    <color name="colorTransparentWhite">#CCCCCC</color>
 
 
 </resources>

@@ -32,7 +32,7 @@ public class BeverageRecyclerViewAdapter extends RecyclerView.Adapter<BeverageRe
     @NonNull
     @Override
     public BeverageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View beverage_row = LayoutInflater.from(parent.getContext()).inflate(R.layout.beverage_row,null);
+        View beverage_row = LayoutInflater.from(parent.getContext()).inflate(R.layout.rbeverage_row,null);
 
         BeverageViewHolder beverageVH = new BeverageViewHolder(beverage_row);
         return beverageVH;
