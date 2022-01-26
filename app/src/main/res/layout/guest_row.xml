@@ -13,49 +13,50 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/img_beverage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="394dp"
+            android:layout_height="103dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="h,16:6"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/guest" />
+            app:srcCompat="@drawable/guest_row_color" />
 
         <TextView
             android:id="@+id/tv_nameCrew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#96FFFFFF"
+            android:layout_marginStart="24dp"
             android:text="Tan Sri Adam"
             android:textColor="#212121"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/img_beverage"
             app:layout_constraintEnd_toEndOf="@+id/img_beverage"
-            app:layout_constraintHorizontal_bias="0.073"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/img_beverage"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintVertical_bias="0.253" />
 
         <TextView
             android:id="@+id/tv_crewProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="2dp"
             android:background="#96FFFFFF"
             android:fontFamily="@font/poppinsmedium"
             android:text="@string/invitation_sent"
-            app:layout_constraintStart_toStartOf="@+id/tv_nameCrew"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_nameCrew" />
 
         <TextView

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -19,7 +20,7 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class AddBookingDetail extends AppCompatActivity {
 
-    TextInputEditText et_bookingName, it_notes, it_payment, it_bookingContactPhoneNumber,it_bookingContactEmail;
+    EditText et_bookingName, it_notes, it_payment, it_bookingContactPhoneNumber,it_bookingContactEmail;
     RadioGroup rg_bookingCategory, rg_Payment_status;
     RadioButton radioButtonCategory,radioButtonPaymentStatus;
     Button btn_saveChanges;
@@ -162,7 +163,7 @@ public class AddBookingDetail extends AppCompatActivity {
                             data[8] = username;
                             data[9] = String.valueOf(id);
                             data[10] = bookingid;
-                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.209.31/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

@@ -1,8 +1,5 @@
-package com.example.loginregister.DBooking;
+package com.example.loginregister.GAds;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +7,13 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.loginregister.R;
-import com.example.loginregister.recyclerView.Booking;
-import com.example.loginregister.recyclerView.adapter.bookingRecycleView;
+import com.example.loginregister.recyclerView.Ads;
+import com.example.loginregister.recyclerView.adapter.adsRecycleView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
@@ -23,59 +24,54 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookingActivity extends AppCompatActivity {
+public class AdsActivity extends AppCompatActivity {
 
     int id;
-    String username;
     LinearLayoutManager linearLayoutManager;
     RecyclerView recyclerView;
-    List<Booking> allBookingInfor;
-    public FloatingActionButton fbtn_createBooking;
+    List<Ads> allAdsInfor;
+    FloatingActionButton fbtn_createAds;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking);
-
+        setContentView(R.layout.activity_ads);
 
 
         if(savedInstanceState==null) {
             Bundle extra = getIntent().getExtras();
             id = extra.getInt("id");
-            username = extra.getString("username");
         }else{
             id=(int)savedInstanceState.getSerializable("id");
-            username=(String)savedInstanceState.getSerializable("username");
         }
 
 
         recyclerView = findViewById(R.id. recycler_view);
 
-        linearLayoutManager = new LinearLayoutManager(BookingActivity.this);
+        linearLayoutManager = new LinearLayoutManager(AdsActivity.this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
-        allBookingInfor = getallBookingInfor();
+        allAdsInfor = getallAdsInfor();
 //        try {
-//            allBookingInfor = getallBookingInfor();
+//            allAdsInfor = getallAdsInfor();
 //        } catch (JSONException e) {
 //            e.printStackTrace();
 //        }
 
 
-        fbtn_createBooking =findViewById(R.id.fbtn_createBooking);
+        fbtn_createAds =findViewById(R.id.fbtn_createAds);
 
-        fbtn_createBooking.setOnClickListener(new View.OnClickListener() {
+        fbtn_createAds.setOnClickListener(new View.OnClickListener() {
             String name;
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(BookingActivity.this, AddBookingDetail.class);
+                Intent intent = new Intent(AdsActivity.this, AddAdsDetail.class);
 
                 intent.putExtra("id", id);
-                intent.putExtra("username", username);
-                System.out.println(id+"NAMA SAYA SHAMEER NAMA SAYA SHAMEER NAMA SAYA SHAMEERNAMA SAYA SHAMEER NAMA SAYA SHAMEERNAMA SAYA SHAMEERNAMA SAYA SHAMEERNAMA SAYA SHAMEERNAMA SAYA SHAMEERNAMA SAYA SHAMEER");
+
                 startActivity(intent);
 
 
@@ -83,12 +79,12 @@ public class BookingActivity extends AppCompatActivity {
             }
         });
     }
-    private List<Booking> getallBookingInfor()  {
+    private List<Ads> getallAdsInfor()  {
 
 
-        List<Booking> allBooking = new ArrayList<Booking>();
-//        allBooking.add(new Booking(obj.getString("name"), obj.getString("category"), obj.getString("payment_status")));
-//        allBooking.add(new Booking("name","category","payment_status"));
+        List<Ads> allAds = new ArrayList<Ads>();
+//        allAds.add(new Ads(obj.getString("name"), obj.getString("category"), obj.getString("status")));
+//        allAds.add(new Ads("name","category","status"));
         //letak putdata
         Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -102,10 +98,10 @@ public class BookingActivity extends AppCompatActivity {
 
                 //Creating array for data
                 String[] data = new String[3];
-                data[0] = username;
+                data[0] = "fanae";
                 data[1] = "list";
                 data[2] = String.valueOf(id);
-                PutData putData = new PutData("http://192.168.209.31/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                PutData putData = new PutData("http://192.168.0.145/API-Eventastic/Ads/AdsListView.php", "POST", field, data);
 
                 if (putData.startPut()) {
 
@@ -120,25 +116,22 @@ public class BookingActivity extends AppCompatActivity {
 
 //                                JSONObject json = new JSONObject(result);
 //                                JSONArray array = json.getJSONArray("GetCitiesResult");
-
-                               System.out.println(result);
                                 JSONArray array = new JSONArray(result);
-
 
                                 for (int i = 0; i < array.length(); i++) {
                                     JSONObject obj = array.getJSONObject(i);
-                                    allBooking.add(new Booking(obj.getString("booking_id"),obj.getString("event_id"),obj.getString("name"), obj.getString("category"),obj.getString("notes"),obj.getString("payment"), obj.getString("payment_status"), obj.getString("phone"), obj.getString("email")));
-//                                    allBooking.add(new Booking("name","category","payment_status"));
-//                                    Toast.makeText(getApplicationContext(),obj.getString("booking_id"), Toast.LENGTH_SHORT).show();
+                                    allAds.add(new Ads(obj.getString("name"), obj.getString("category"), obj.getString("status")));
+//                                    allAds.add(new Ads("name","category","status"));
+//                                    Toast.makeText(getApplicationContext(), String.valueOf(allAds.get(i)), Toast.LENGTH_SHORT).show();
                                 }
-                                bookingRecycleView bookingRecycleView = new bookingRecycleView(BookingActivity.this,allBookingInfor,username);
-                                recyclerView.setAdapter(bookingRecycleView);
+                                adsRecycleView adsRecycleView = new adsRecycleView(AdsActivity.this,allAdsInfor);
+                                recyclerView.setAdapter(adsRecycleView);
 //                                recyclerView.notify();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         } else {
-//                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -146,7 +139,7 @@ public class BookingActivity extends AppCompatActivity {
             }
         });
 
-        return allBooking;
+        return allAds;
 
     }
 }

@@ -13,17 +13,17 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
 
-        tools:context=".FAdvertisement.AdvertisementActivity">
+        tools:context=".GAds.AdsActivity">
 
         <TextView
-            android:id="@+id/AdsPage"
+            android:id="@+id/adsPage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:background="@drawable/rounded_edittext"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="Advertisement"
+            android:text="Adsvertisement"
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/recycler_view"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view"
-            app:srcCompat="@drawable/ic_baseline_add_24" />
+            app:srcCompat="@drawable/ic_baseline_add_24"
+            tools:ignore="VectorDrawableCompat" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -54,7 +55,7 @@
             android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AdsPage" />
+            app:layout_constraintTop_toBottomOf="@+id/adsPage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

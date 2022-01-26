@@ -124,7 +124,7 @@ public class GuestCrewInsertCrew extends AppCompatActivity {
                         field[7] = "process";
                         field[8] = "username";
                         field[9] = "event_id";
-                        field[10] = "guest_id";
+                        field[10] = "crew_id";
 
                         //Creating array for data
                         String[] data = new String[11];
@@ -139,7 +139,7 @@ public class GuestCrewInsertCrew extends AppCompatActivity {
                         data[8] = username;
                         data[9] = String.valueOf(id);
                         data[10] = crewid;
-                        PutData putData = new PutData("http://192.168.43.16/API-Eventastic/GuestCrew/guestListView.php", "POST", field, data);
+                        PutData putData = new PutData("http://192.168.209.31/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

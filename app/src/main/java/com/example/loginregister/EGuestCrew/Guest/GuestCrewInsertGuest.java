@@ -153,7 +153,7 @@ public class GuestCrewInsertGuest extends AppCompatActivity {
                         data[9] = username;
                         data[10] = String.valueOf(id);
                         data[11] = guestid;
-                        PutData putData = new PutData("http://192.168.43.16/API-Eventastic/GuestCrew/guestListView.php", "POST", field, data);
+                        PutData putData = new PutData("http://192.168.209.31/API-Eventastic/GuestCrew/guestListView.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

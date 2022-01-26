@@ -98,7 +98,7 @@ public class GuestCrewFragment2 extends Fragment {
                 data[0] = username;
                 data[1] = "list";
                 data[2] = String.valueOf(id);
-                PutData putData = new PutData("http://192.168.43.16/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
+                PutData putData = new PutData("http://192.168.209.31/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
 
                 if (putData.startPut()) {
 

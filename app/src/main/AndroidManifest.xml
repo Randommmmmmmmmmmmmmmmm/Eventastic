@@ -6,20 +6,46 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegister"
         android:usesCleartextTraffic="true">
 
 
+
         <activity
-            android:name=".FAdvertisement.AdvertisementAddDetail"
+            android:name=".ALoginRegister.Login"
+            android:theme="@style/Theme.Design.Light.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ALoginRegister.SignUp"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
 
         <activity
-            android:name=".FAdvertisement.AdvertisementActivity"
+            android:name=".BCreateEvent.InsertEventDetails"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+
+        <activity
+            android:name=".BCreateEvent.MainActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar"/>
+
+        <activity
+            android:name=".CMainMenu.BeverageDetailActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+
+        <activity
+            android:name=".DBooking.BookingActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity
+            android:name=".DBooking.AddBookingDetail"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
 
         <activity
@@ -36,39 +62,24 @@
             android:theme="@style/Theme.Design.Light.NoActionBar" />
 
         <activity
-            android:name=".Dashboard"
+            android:name=".FVenue.VenueActivity"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
-            android:name=".Venue"
+            android:name=".FVenue.AddVenueDetail"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
-        <activity
-            android:name=".CMainMenu.BeverageDetailActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
-        <activity
-            android:name=".DBooking.BookingActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
-        <activity
-            android:name=".DBooking.AddBookingDetail"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
-        <activity
-            android:name=".ALoginRegister.Login"
-            android:theme="@style/Theme.Design.Light.NoActionBar"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".BCreateEvent.InsertEventDetails"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
-        <activity
-            android:name=".ALoginRegister.SignUp"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
-        <activity
-            android:name=".BCreateEvent.MainActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar"/>
 
+        <activity android:name=".FVenue.VenueList"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+
+        <activity android:name=".GAds.AdsActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+
+        <activity android:name=".GAds.AddAdsDetail"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+
+        <activity
+            android:name=".HDashboard.Dashboard"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

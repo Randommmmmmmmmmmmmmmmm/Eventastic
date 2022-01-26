@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="#FFF3FFEB"
     tools:context=".ALoginRegister.Login">
 
   <TextView
@@ -14,7 +16,7 @@
       android:fontFamily="@font/poppinsbold"
       android:gravity="center"
       android:text="@string/login"
-      android:textColor="@color/colorAccent"
+      android:textColor="#359783"
       android:textSize="30sp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.0"
@@ -92,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/login"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="#359783"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progress" />

@@ -6,7 +6,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="#F3FFEB">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,11 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:background="@drawable/rounded_edittext"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
             android:text="@string/crew_details"
-            android:textColor="@color/black"
+            android:textColor="#359783"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -36,21 +35,23 @@
             android:id="@+id/et_nameCrew"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/edit_text_shape"
+            android:layout_marginTop="16dp"
 
+            android:background="@drawable/edit_text_shape"
             android:hint="Name"
             android:inputType=""
-            android:padding="12dp"
 
+            android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_crewDetails" />
+
         <TextView
             android:id="@+id/categoryCrew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
             android:fontFamily="@font/poppinsmedium"
             android:text="@string/category"
             android:textSize="16sp"
@@ -62,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:background="@color/white"
             app:layout_constraintStart_toStartOf="@+id/categoryCrew"
             app:layout_constraintTop_toBottomOf="@+id/categoryCrew">
 
@@ -113,7 +115,7 @@
             android:id="@+id/et_quantityCrew"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
 
             android:background="@drawable/edit_text_shape"
 
@@ -129,8 +131,8 @@
             android:id="@+id/progressCrew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
             android:fontFamily="@font/poppinsmedium"
             android:text="Progress"
             android:textSize="16sp"
@@ -142,6 +144,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:background="@color/white"
             app:layout_constraintStart_toStartOf="@+id/progressCrew"
             app:layout_constraintTop_toBottomOf="@+id/progressCrew">
 
@@ -151,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsbold"
                 android:text="@string/confirm"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/colorAccent" />
 
             <RadioButton
                 android:id="@+id/rb_notConfirmCrew"
@@ -159,7 +162,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsbold"
                 android:text="@string/not_confirm"
-                android:textColor="#B11E1E"/>
+                android:textColor="#B11E1E" />
 
         </RadioGroup>
 
@@ -167,10 +170,10 @@
             android:id="@+id/contactDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="46dp"
             android:fontFamily="@font/poppinsmedium"
             android:text="@string/contact_details_optional"
+            android:textColor="#359783"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/rg_progressCrew"
             app:layout_constraintTop_toBottomOf="@+id/rg_progressCrew" />
@@ -179,7 +182,7 @@
             android:id="@+id/et_phoneNoGuestCrew"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
 
             android:background="@drawable/edit_text_shape"
 
@@ -195,7 +198,7 @@
             android:id="@+id/et_emailGuestCrew"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
 
             android:background="@drawable/edit_text_shape"
 
@@ -211,7 +214,7 @@
             android:id="@+id/et_notesGuestCrew"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
 
             android:background="@drawable/edit_text_shape"
 
@@ -233,6 +236,7 @@
             android:fontFamily="@font/poppinsbold"
             android:hapticFeedbackEnabled="true"
             android:text="Save Changes"
+            app:backgroundTint="#359783"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_notesGuestCrew" />

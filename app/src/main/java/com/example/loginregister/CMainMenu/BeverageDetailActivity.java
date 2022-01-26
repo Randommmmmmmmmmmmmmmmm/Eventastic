@@ -17,12 +17,13 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.loginregister.Dashboard;
+import com.example.loginregister.HDashboard.Dashboard;
 import com.example.loginregister.EGuestCrew.GuestCrew;
 import com.example.loginregister.ALoginRegister.Login;
-import com.example.loginregister.FAdvertisement.AdvertisementActivity;
+
+import com.example.loginregister.FVenue.VenueActivity;
+import com.example.loginregister.GAds.AdsActivity;
 import com.example.loginregister.R;
-import com.example.loginregister.Venue;
 import com.example.loginregister.DBooking.BookingActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -219,11 +220,13 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 startActivity(intent);
                 break;
                 case R.id.nav_venue:
-                intent = new Intent(BeverageDetailActivity.this, Venue.class);
+                intent = new Intent(BeverageDetailActivity.this, VenueActivity.class);
+                intent.putExtra("id", id);
                 startActivity(intent);
                 break;
                 case R.id.nav_ads:
-                intent = new Intent(BeverageDetailActivity.this, AdvertisementActivity.class);
+                intent = new Intent(BeverageDetailActivity.this, AdsActivity.class);
+                intent.putExtra("id", id);
                 startActivity(intent);
                 break;
                 case R.id.nav_gc:
@@ -262,11 +265,13 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 startActivity(i);
                 break;
             case R.id.c3:
-                i = new Intent(this,AdvertisementActivity.class);
+                i = new Intent(this,AdsActivity.class);
+                i.putExtra("id", id);
                 startActivity(i);
                 break;
             case R.id.c4:
-                i = new Intent(this,Venue.class);
+                i = new Intent(this,VenueActivity.class);
+                i.putExtra("id", id);
                 startActivity(i);
                 break;
             case R.id.c5:

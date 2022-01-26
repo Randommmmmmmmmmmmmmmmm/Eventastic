@@ -15,11 +15,19 @@
 
 
         android:padding="40dp"
-        tools:context=".FAdvertisement.AdvertisementAddDetail">
+        tools:context=".GAds.AddAdsDetail">
 
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="28dp"
+            android:layout_height="32dp"
+
+            android:background="@drawable/back_icon2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/ads"
+            android:id="@+id/tv_adsDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
@@ -41,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:hapticFeedbackEnabled="true"
-            app:layout_constraintTop_toBottomOf="@+id/ads"
+            app:layout_constraintTop_toBottomOf="@+id/tv_adsDetails"
             tools:layout_editor_absoluteX="7dp">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -59,7 +67,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/tv_category"
+            android:id="@+id/tv_adscategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -77,8 +85,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            app:layout_constraintStart_toStartOf="@+id/tv_category"
-            app:layout_constraintTop_toBottomOf="@+id/tv_category">
+            app:layout_constraintStart_toStartOf="@+id/tv_adscategory"
+            app:layout_constraintTop_toBottomOf="@+id/tv_adscategory">
 
             <RadioButton
                 android:id="@+id/rb_poster"
@@ -88,6 +96,13 @@
                 android:text="Poster" />
 
             <RadioButton
+                android:id="@+id/rb_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Foods Catering" />
+
+            <RadioButton
                 android:id="@+id/rb_banner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,45 +110,20 @@
                 android:text="Banner" />
 
             <RadioButton
-                android:id="@+id/rb_invitationcard"
+                android:id="@+id/rb_ivcard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsmedium"
                 android:text="Invitation Card" />
 
             <RadioButton
-                android:id="@+id/rb_otherads"
+                android:id="@+id/rb_others"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsmedium"
                 android:text="Others" />
 
         </RadioGroup>
-
-        <TextView
-            android:id="@+id/textViewDate"
-            android:layout_width="106dp"
-            android:layout_height="29dp"
-            android:layout_marginTop="36dp"
-            android:fontFamily="@font/poppinsmedium"
-            android:text="Date"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/rg_adsCategory"
-            tools:layout_editor_absoluteX="57dp" />
-
-        <Button
-            android:id="@+id/datePickerButton"
-            style="?android:spinnerStyle"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
-            android:onClick="openDatePicker"
-            android:text="JAN 01 2021"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDate"
-            tools:layout_editor_absoluteX="56dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/adsNotes"
@@ -142,10 +132,10 @@
             android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/datePickerButton">
+            app:layout_constraintTop_toBottomOf="@+id/rg_adsCategory">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/it_notes"
+                android:id="@+id/et_adsNotes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -158,39 +148,14 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/adsPayment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adsNotes">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/it_payment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/rounded_edittext"
-                android:fontFamily="@font/poppinsmedium"
-                android:hint="   Status"
-                android:inputType="number"
-                tools:targetApi="jelly_bean" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
         <RadioGroup
             android:id="@+id/rg_Ads_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/tv_category"
-            app:layout_constraintTop_toBottomOf="@+id/adsPayment">
+            app:layout_constraintStart_toStartOf="@+id/tv_adscategory"
+            app:layout_constraintTop_toBottomOf="@+id/adsNotes">
 
             <RadioButton
                 android:id="@+id/rb_finished"
@@ -201,7 +166,7 @@
                 android:textColor="#8EBC8F" />
 
             <RadioButton
-                android:id="@+id/rb_notfinished"
+                android:id="@+id/rb_notFinished"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsbold"
@@ -212,18 +177,17 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/btn_saveChangesGuest"
+            android:id="@+id/btn_saveChangesAds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/rounded_edittext"
             android:fontFamily="@font/poppinsbold"
             android:hapticFeedbackEnabled="true"
             android:text="Save Changes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rg_Ads_status"
-            tools:ignore="NotSibling" />
+            app:layout_constraintTop_toBottomOf="@+id/rg_Ads_status" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

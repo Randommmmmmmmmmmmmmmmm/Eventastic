@@ -6,7 +6,7 @@ xmlns:tools="http://schemas.android.com/tools"
 
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="@drawable/background">
+android:background="#F3FFEB">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -20,11 +20,10 @@ android:background="@drawable/background">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:background="@drawable/rounded_edittext"
         android:fontFamily="@font/poppinsbold"
         android:gravity="center"
         android:text="@string/guest_details"
-        android:textColor="@color/black"
+        android:textColor="#359783"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -36,24 +35,27 @@ android:background="@drawable/background">
         android:id="@+id/et_nameGuest"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+
         android:background="@drawable/edit_text_shape"
-
         android:hint="Name"
-        android:inputType="text"
 
+        android:inputType="text"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_guestDetails" />
+
     <TextView
         android:id="@+id/tv_genderGuest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppinsmedium"
         android:text="@string/gender"
         android:textSize="16sp"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="@+id/et_nameGuest"
         app:layout_constraintTop_toBottomOf="@+id/et_nameGuest" />
 
@@ -62,6 +64,7 @@ android:background="@drawable/background">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="@+id/tv_genderGuest"
         app:layout_constraintTop_toBottomOf="@+id/tv_genderGuest">
 
@@ -85,10 +88,11 @@ android:background="@drawable/background">
         android:id="@+id/tv_categoryGuest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppinsmedium"
         android:text="@string/category"
         android:textSize="16sp"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="@+id/rg_genderGuest"
         app:layout_constraintTop_toBottomOf="@+id/rg_genderGuest" />
 
@@ -97,6 +101,7 @@ android:background="@drawable/background">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="@+id/tv_categoryGuest"
         app:layout_constraintTop_toBottomOf="@+id/tv_categoryGuest">
 
@@ -130,11 +135,12 @@ android:background="@drawable/background">
         android:id="@+id/et_quantityGuest"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+
         android:background="@drawable/edit_text_shape"
-
         android:hint="@string/quantity"
-        android:inputType="number"
 
+        android:inputType="number"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,10 +150,11 @@ android:background="@drawable/background">
         android:id="@+id/tv_progressGuest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppinsmedium"
         android:text="@string/progress"
         android:textSize="16sp"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="@+id/rg_categoryGuest"
         app:layout_constraintTop_toBottomOf="@+id/et_quantityGuest" />
 
@@ -156,6 +163,7 @@ android:background="@drawable/background">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="@+id/tv_progressGuest"
         app:layout_constraintTop_toBottomOf="@+id/tv_progressGuest">
 
@@ -182,19 +190,19 @@ android:background="@drawable/background">
         android:id="@+id/contactDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="46dp"
         android:fontFamily="@font/poppinsmedium"
         android:text="@string/contact_details_optional"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/rg_progressGuest"
+        android:textColor="#359783"
+        app:layout_constraintStart_toStartOf="@+id/et_quantityGuest"
         app:layout_constraintTop_toBottomOf="@+id/rg_progressGuest" />
 
     <EditText
         android:id="@+id/et_phoneNoGuestCrew"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
 
         android:background="@drawable/edit_text_shape"
 
@@ -210,7 +218,7 @@ android:background="@drawable/background">
         android:id="@+id/et_emailGuestCrew"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
 
         android:background="@drawable/edit_text_shape"
 
@@ -226,7 +234,7 @@ android:background="@drawable/background">
         android:id="@+id/et_notesGuestCrew"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
 
         android:background="@drawable/edit_text_shape"
 
@@ -243,10 +251,11 @@ android:background="@drawable/background">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:background="@drawable/rounded_edittext"
+        android:background="@drawable/edit_text_shape"
         android:fontFamily="@font/poppinsbold"
         android:hapticFeedbackEnabled="true"
         android:text="Save Changes"
+        app:backgroundTint="#359783"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_notesGuestCrew" />

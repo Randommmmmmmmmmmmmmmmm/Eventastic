@@ -1,14 +1,16 @@
-package com.example.loginregister;
+package com.example.loginregister.HDashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Venue extends AppCompatActivity {
+import com.example.loginregister.R;
+
+public class Dashboard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_venue);
+        setContentView(R.layout.activity_dashboard);
     }
 }

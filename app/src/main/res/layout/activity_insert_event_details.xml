@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F3FFEB"
     tools:context=".BCreateEvent.InsertEventDetails">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,7 +24,7 @@
             android:fontFamily="@font/baloo"
             android:gravity="center"
             android:text="@string/insert_your_event_details_here"
-            android:textColor="@color/black"
+            android:textColor="#359783"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -159,7 +160,7 @@
             android:layout_marginEnd="161dp"
             android:layout_marginBottom="16dp"
             android:text="@string/save_changes"
-            app:backgroundTint="@color/black"
+            app:backgroundTint="#359783"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
