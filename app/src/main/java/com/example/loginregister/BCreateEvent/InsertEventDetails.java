@@ -149,6 +149,7 @@ public class InsertEventDetails extends AppCompatActivity {
 
 
                                 JSONObject json = new JSONObject(result);
+                                Toast.makeText(getApplicationContext(), "result", Toast.LENGTH_SHORT).show();
                                 eventName.setText(json.getString("event_name"));
                                 eventDate.setText(json.getString("event_date"));
                                 eventTime.setText(json.getString("event_time"));

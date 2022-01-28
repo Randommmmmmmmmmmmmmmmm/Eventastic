@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegister"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FVenue.VenueActivity"></activity>
+
+
+        <activity android:name=".FVenue.VenueActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar"/>
+
+
         <activity
             android:name=".AASplashScreen.SplashActivity"
             android:exported="true"
