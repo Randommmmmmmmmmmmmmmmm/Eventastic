@@ -189,7 +189,7 @@ public class Dashboard extends AppCompatActivity {
                     if (putData.onComplete()) {
 //                progressBar.setVisibility(View.GONE);
                         String result = putData.getResult();
-                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
 
                         if (!result.equals("500")) {
 
@@ -198,8 +198,8 @@ public class Dashboard extends AppCompatActivity {
 
 //                                JSONObject json = new JSONObject(result);
 //                                JSONArray array = json.getJSONArray("GetCitiesResult");
-                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                System.out.println(result);
+//                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+//                                System.out.println(result);
 //
                             String[] tokens = result.split(",");
 //
