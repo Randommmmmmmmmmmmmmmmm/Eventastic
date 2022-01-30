@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,11 +33,13 @@ public class bookingRecycleView extends RecyclerView.Adapter<bookingRecycleView.
     private Context context;
     String eventid;
     String username;
+    int id;
 
-    public bookingRecycleView(Context context, List<Booking> bookingList,String username) {
+    public bookingRecycleView(Context context, List<Booking> bookingList,String username,int id) {
         this.context=context;
         this.bookingList= bookingList;
         this.username = username;
+        this.id = id;
     }
 
     @NonNull
@@ -58,75 +61,49 @@ public class bookingRecycleView extends RecyclerView.Adapter<bookingRecycleView.
 
         holder.button_delete_booking.setOnClickListener(view -> {
 
+            Toast.makeText(view.getContext(),String.valueOf(bookingList.get(position).getBookingid()),Toast.LENGTH_SHORT).show();
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
             // Set a title for alert dialog
-            builder.setTitle("Select your answer.");
+            builder.setTitle("Are you sure yo delete this ?");
 
             // Ask the final question
-            builder.setMessage("Are you sure to hide?");
+            builder.setMessage("Deleted data cannot be undone.");
 
             // Set the alert dialog yes button click listener
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
+
                 public void onClick(DialogInterface dialog, int which) {
-//
-//                    Handler handler = new Handler();
-//                    handler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//
-//                            String[] field = new String[3];
-//                            field[0] = "username";
-//                            field[1] = "process";
-//                            field[2] = "event_id";
-//
-//                            //Creating array for data
-//                            String[] data = new String[3];
-//                            data[0] = username;
-//                            data[1] = "list";
-//                            data[2] = String.valueOf(id);
-//                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
-//
-//                            if (putData.startPut()) {
-//
-//                                if (putData.onComplete()) {
-////                progressBar.setVisibility(View.GONE);
-//                                    String result = putData.getResult();
-//
-//                                    if (!result.equals("500")) {
-//
-//                                        try {
-//
-//
-////                                JSONObject json = new JSONObject(result);
-////                                JSONArray array = json.getJSONArray("GetCitiesResult");
-//
-//                                            System.out.println(result);
-//                                            JSONArray array = new JSONArray(result);
-//
-//
-//                                            for (int i = 0; i < array.length(); i++) {
-//                                                JSONObject obj = array.getJSONObject(i);
-//                                                allBooking.add(new Booking(obj.getString("booking_id"),obj.getString("event_id"),obj.getString("name"), obj.getString("category"),obj.getString("notes"),obj.getString("payment"), obj.getString("payment_status"), obj.getString("phone"), obj.getString("email")));
-////                                    allBooking.add(new Booking("name","category","payment_status"));
-////                                    Toast.makeText(getApplicationContext(),obj.getString("booking_id"), Toast.LENGTH_SHORT).show();
-//                                            }
-//                                            bookingRecycleView bookingRecycleView = new bookingRecycleView(BookingActivity.this,allBookingInfor,username);
-//                                            recyclerView.setAdapter(bookingRecycleView);
-////                                recyclerView.notify();
-//                                        } catch (JSONException e) {
-//                                            e.printStackTrace();
-//                                        }
-//                                    } else {
-////                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-//                                    }
-//                                }
-//                            }
-////        allBeverage.add(new Beverage("Event 1"/**, R.drawable.flat_white**/));
-//                        }
-//                    });
-//
+
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            String[] field = new String[2];
+                            field[0] = "process";
+                            field[1] = "booking_id";
+
+                            //Creating array for data
+                            String[] data = new String[2];
+                            data[0] = "delete";
+                            data[1] = String.valueOf(bookingList.get(position).getBookingid());
+                            // todo host
+//                            PutData putData = new PutData("http://"+context.getString(R.string.localhost)+"/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                            PutData putData = new PutData("https://eventastic.lepak.xyz/Booking/BookingListView.php", "POST", field, data);
+
+                            if (putData.startPut()) {
+
+                                if (putData.onComplete()) {
+//                progressBar.setVisibility(View.GONE);
+                                    String result = putData.getResult();
+                                }
+                            }
+//        allBeverage.add(new Beverage("Event 1"/**, R.drawable.flat_white**/));
+                        }
+                    });
+
                 }
             });
 

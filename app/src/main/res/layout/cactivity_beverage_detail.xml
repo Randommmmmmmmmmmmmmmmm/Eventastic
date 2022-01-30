@@ -70,7 +70,7 @@
                 android:fontFamily="@font/baloo"
                 android:text="Biha's Birthday Party"
                 android:textAllCaps="false"
-                android:textColor="#403C3C"
+                android:textColor="#E91E63"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -81,11 +81,12 @@
                 android:layout_width="242dp"
                 android:layout_height="32dp"
                 android:fontFamily="@font/poppinsbold"
-                android:text="23 December 2021"
                 android:gravity="center"
+                android:text="23 December 2021"
                 android:textAlignment="center"
-                android:textColor="#0B0B0B"
-                android:textSize="22sp"
+                android:textColor="#E91E63"
+                android:textSize="27dp"
+                android:layout_marginTop="-14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +99,7 @@
                 android:fontFamily="@font/poppinsbold"
                 android:gravity="center"
                 android:text="Days : Hours : Mins : Secs"
-                android:textColor="#0C0C0C"
+                android:textColor="#E91E63"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_eventTime" />
@@ -139,7 +140,8 @@
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/aclonica"
                             android:text="Booking"
-                            android:textSize="24sp" />
+                            android:textColor="#E91E63"
+                            android:textSize="19dp" />
 
                         <ImageView
                             android:id="@+id/imageView4"
@@ -184,7 +186,8 @@
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/aclonica"
                             android:text="Guest &amp; Crew"
-                            android:textSize="22dp" />
+                            android:textColor="#E91E63"
+                            android:textSize="19dp" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
@@ -224,6 +227,7 @@
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/aclonica"
                             android:text="Advertisement"
+                            android:textColor="#E91E63"
                             android:textSize="19dp" />
 
                         <ImageView
@@ -269,7 +273,8 @@
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/aclonica"
                             android:text="Venue"
-                            android:textSize="24dp" />
+                            android:textColor="#E91E63"
+                            android:textSize="19dp" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
@@ -316,7 +321,8 @@
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/aclonica"
                             android:text="Dashboard"
-                            android:textSize="24dp" />
+                            android:textColor="#E91E63"
+                            android:textSize="19dp" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
@@ -326,10 +332,10 @@
                 android:layout_width="240dp"
                 android:layout_height="35dp"
                 android:fontFamily="@font/poppinsbold"
-                android:text="24 : 02 : 36 : 51"
                 android:gravity="center"
-                android:textColor="#0C0C0C"
-                android:textSize="24sp"
+                android:text="24 : 02 : 36 : 51"
+                android:textColor="#E91E63"
+                android:textSize="23dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_eventDate" />

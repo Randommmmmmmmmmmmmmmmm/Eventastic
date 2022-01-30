@@ -31,6 +31,7 @@ public class GuestCrewFragment2 extends Fragment {
 
     int id;
     String username;
+    String type;
 
     FloatingActionButton fbtn_createCrew;
     LinearLayoutManager linearLayoutManager;
@@ -47,9 +48,11 @@ public class GuestCrewFragment2 extends Fragment {
             Bundle extra = getActivity().getIntent().getExtras();
             id = extra.getInt("id");
             username = extra.getString("username");
+            type = extra.getString("type");
         }else{
             id=(int)savedInstanceState.getSerializable("id");
             username=(String)savedInstanceState.getSerializable("username");
+            type=(String)savedInstanceState.getSerializable("type");
         }
 
         recyclerView = view.findViewById(R.id. recycler_view);
@@ -86,17 +89,22 @@ public class GuestCrewFragment2 extends Fragment {
             @Override
             public void run() {
 
-                String[] field = new String[3];
+                String[] field = new String[4];
                 field[0] = "username";
                 field[1] = "process";
                 field[2] = "event_id";
+                field[3] = "type";
 
                 //Creating array for data
-                String[] data = new String[3];
+                String[] data = new String[4];
                 data[0] = username;
                 data[1] = "list";
                 data[2] = String.valueOf(id);
-                PutData putData = new PutData("http://192.168.43.16/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
+                data[3] = type;
+                // todo host
+//                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
+                //lepak server
+                PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/crewListView.php", "POST", field, data);
 
                 if (putData.startPut()) {
 
@@ -118,7 +126,7 @@ public class GuestCrewFragment2 extends Fragment {
 
                                 for (int i = 0; i < array.length(); i++) {
                                     JSONObject obj = array.getJSONObject(i);
-                                    allCrew.add(new Crew(obj.getString("crew_id"),obj.getString("event_id"),obj.getString("name"), obj.getString("category"),obj.getString("quantity"),obj.getString("progress"), obj.getString("phone"), obj.getString("email"), obj.getString("notes")));
+                                    allCrew.add(new Crew(obj.getInt("crew_id"),obj.getString("event_id"),obj.getString("name"), obj.getString("category"),obj.getString("quantity"),obj.getString("progress"), obj.getString("phone"), obj.getString("email"), obj.getString("notes")));
 //                                    allCrew.add(new Crew("name","category","payment_status"));
 //                                    Toast.makeText(getApplicationContext(),obj.getString("Crew_id"), Toast.LENGTH_SHORT).show();
                                 }

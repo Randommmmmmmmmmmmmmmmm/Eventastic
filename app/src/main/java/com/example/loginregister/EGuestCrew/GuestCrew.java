@@ -13,6 +13,7 @@ public class GuestCrew extends AppCompatActivity {
 
     int id;
     String username;
+    String type;
     private EactivityGuestCrewBinding binding;
 
     @Override
@@ -23,9 +24,11 @@ public class GuestCrew extends AppCompatActivity {
             Bundle extra = getIntent().getExtras();
             id = extra.getInt("id");
             username = extra.getString("username");
+            type = extra.getString("type");
         }else{
             id=(int)savedInstanceState.getSerializable("id");
             username=(String)savedInstanceState.getSerializable("username");
+            type=(String)savedInstanceState.getSerializable("type");
         }
 
         binding = EactivityGuestCrewBinding.inflate(getLayoutInflater());

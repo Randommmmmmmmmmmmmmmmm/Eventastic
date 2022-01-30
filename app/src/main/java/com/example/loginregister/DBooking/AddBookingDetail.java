@@ -25,7 +25,7 @@ public class AddBookingDetail extends AppCompatActivity {
     Button btn_saveChanges;
     int id;
     String username;
-    String bookingid;
+    int bookingid;
 
     String process="insert";
 
@@ -88,7 +88,7 @@ public class AddBookingDetail extends AppCompatActivity {
 
             }else if(currentBooking==null){
 
-                bookingid = "0";
+                bookingid = 0;
 
             }
 
@@ -161,8 +161,11 @@ public class AddBookingDetail extends AppCompatActivity {
                             data[7] = process;
                             data[8] = username;
                             data[9] = String.valueOf(id);
-                            data[10] = bookingid;
-                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                            data[10] = String.valueOf(bookingid);
+                            // todo host
+//                            PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                            //lepak server
+                            PutData putData = new PutData("https://eventastic.lepak.xyz/Booking/BookingListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

@@ -1,19 +1,37 @@
 package com.example.loginregister.recyclerView;
 
+import java.io.Serializable;
+
 //Ads recyclerview
-public class Ads {
+public class Ads implements Serializable {
+      int ads_id;
     String aname;
     String acategory;
     String astatus;
 
+    String notes;
+
+    String eventid;
 
 
-    public Ads(String aname, String acategory, String astatus) {
+    public Ads(int ads_id,String eventid, String aname, String acategory, String astatus,String notes) {
+        this.ads_id = ads_id;
+        this.eventid = eventid;
         this.aname = aname;
         this.acategory = acategory;
         this.astatus = astatus;
+        this.notes = notes;
 
     }
+
+    public int getAds_id() {
+        return ads_id;
+    }
+
+    public void setAds_id(int ads_id) {
+        this.ads_id = ads_id;
+    }
+
 
     public String getAname() {
         return aname;
@@ -37,6 +55,25 @@ public class Ads {
 
     public void setAstatus(String astatus) {
         this.astatus = astatus;
+    }
+
+
+
+    public String getEventid() {
+        return eventid;
+    }
+
+    public void setEventid(String eventid) {
+        this.eventid = eventid;
+    }
+
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
 

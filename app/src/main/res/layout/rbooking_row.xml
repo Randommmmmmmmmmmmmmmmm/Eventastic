@@ -60,23 +60,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="11dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginRight="25dp"
             android:background="#96FFFFFF"
             android:fontFamily="@font/poppinsmedium"
             android:text="Paid"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/img_beverage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/button_delete_booking"
             app:layout_constraintTop_toBottomOf="@+id/tv_nameCrew" />
 
         <Button
             android:id="@+id/button_delete_booking"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="44dp"
+            android:layout_height="39dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/delete"
             app:backgroundTint="#C12525"
             app:layout_constraintBottom_toBottomOf="@+id/tv_nameCrew"
-            app:layout_constraintEnd_toEndOf="@+id/tv_crewQuantity"
-            app:layout_constraintStart_toStartOf="@+id/tv_crewQuantity"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_nameCrew" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

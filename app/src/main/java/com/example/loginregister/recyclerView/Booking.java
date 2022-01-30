@@ -15,12 +15,13 @@ public class Booking implements Serializable {
     String email;
 
     String eventid;
-    String bookingid;
+
+    int bookingid;
 
 
 
 
-    public Booking(String bookingid,String eventid,String name,String category,String notes,String payment,String payment_status,String phone,String email) {
+    public Booking(int bookingid,String eventid,String name,String category,String notes,String payment,String payment_status,String phone,String email) {
         this.name = name;
         this.category = category;
         this.notes = notes;
@@ -90,13 +91,7 @@ public class Booking implements Serializable {
         this.email = email;
     }
 
-    public String getBookingid() {
-        return bookingid;
-    }
 
-    public void setBookingid(String bookingid) {
-        this.bookingid = bookingid;
-    }
 
     public String getEventid() {
         return eventid;
@@ -105,4 +100,14 @@ public class Booking implements Serializable {
     public void setEventid(String eventid) {
         this.eventid = eventid;
     }
+
+    public int getBookingid() {
+        return bookingid;
+    }
+
+    public void setBookingid(int bookingid) {
+        this.bookingid = bookingid;
+    }
+
+
 }

@@ -49,7 +49,7 @@ public class GuestCrewInsertCrew extends AppCompatActivity {
 
             process = "update";
             currentCrew = (Crew) getIntent().getSerializableExtra("edit");
-            crewid = currentCrew.getCrew_id();
+            crewid = String.valueOf(currentCrew.getCrew_id());
 
             et_nameCrew.setText(currentCrew.getName());
             et_quantityCrew.setText(currentCrew.getQuantity());
@@ -67,8 +67,8 @@ public class GuestCrewInsertCrew extends AppCompatActivity {
 
             }
             switch(currentCrew.getProgress()){
-                case "Confirm": rg_progressCrew.check(rg_progressCrew.getChildAt(0).getId()); break;
-                case "Not Confirm": rg_progressCrew.check(rg_progressCrew.getChildAt(1).getId()); break;
+                case "Yes": rg_progressCrew.check(rg_progressCrew.getChildAt(0).getId()); break;
+                case "No": rg_progressCrew.check(rg_progressCrew.getChildAt(1).getId()); break;
 
             }
 
@@ -138,7 +138,10 @@ public class GuestCrewInsertCrew extends AppCompatActivity {
                         data[8] = username;
                         data[9] = String.valueOf(id);
                         data[10] = crewid;
-                        PutData putData = new PutData("http://192.168.43.16/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
+                        // todo host
+//                        PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
+                        //lepak server
+                        PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/crewListView.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

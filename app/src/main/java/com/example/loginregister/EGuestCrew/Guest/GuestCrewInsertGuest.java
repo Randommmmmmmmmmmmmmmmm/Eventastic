@@ -54,7 +54,7 @@ public class GuestCrewInsertGuest extends AppCompatActivity {
 
             process = "update";
             currentGuest = (Guest) getIntent().getSerializableExtra("edit");
-            guestid = currentGuest.getGuestid();
+            guestid = String.valueOf(currentGuest.getGuestid());
 
             et_nameGuest.setText(currentGuest.getName());
             et_quantityGuest.setText(currentGuest.getQuantity());
@@ -73,8 +73,8 @@ public class GuestCrewInsertGuest extends AppCompatActivity {
 
             }
             switch(currentGuest.getProgress()){
-                case "Invitation Sent": rg_progressGuest.check(rg_progressGuest.getChildAt(0).getId()); break;
-                case "Invitation Not Sent": rg_progressGuest.check(rg_progressGuest.getChildAt(1).getId()); break;
+                case "Yes": rg_progressGuest.check(rg_progressGuest.getChildAt(0).getId()); break;
+                case "No": rg_progressGuest.check(rg_progressGuest.getChildAt(1).getId()); break;
 
             }
 
@@ -150,12 +150,15 @@ public class GuestCrewInsertGuest extends AppCompatActivity {
                         data[9] = username;
                         data[10] = String.valueOf(id);
                         data[11] = guestid;
-                        PutData putData = new PutData("http://192.168.43.16/API-Eventastic/GuestCrew/guestListView.php", "POST", field, data);
+                        // todo host
+//                        PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/GuestCrew/guestListView.php", "POST", field, data);
+                        //lepak server
+                        PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/guestListView.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);
                                 String result = putData.getResult();
-                                if(result.equals("200")){
+                                if(result.contains("200")){
 
 //                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                     finish();

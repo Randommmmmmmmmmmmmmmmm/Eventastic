@@ -54,7 +54,9 @@ public class VenueRecyclerView extends RecyclerView.Adapter<VenueRecyclerView.Ve
         holder.book_status.setText(venueList.getBookstatus());
         holder.ratings.setText(venueList.getRatings());
 //        holder.venue_image.setImageResource(VenueList.get(position).getImage());
-        Picasso.get().load("http://192.168.43.16/API-Eventastic/dewan/"+VenueList.get(position).getImage()).into(holder.venue_image);
+//                // todo host
+//        Picasso.get().load("http://"+context.getString(R.string.localhost)+"/API-Eventastic/dewan/"+VenueList.get(position).getImage()).into(holder.venue_image);
+        Picasso.get().load("https://eventastic.lepak.xyz//dewan/"+VenueList.get(position).getImage()).into(holder.venue_image);
 
 
         if (venueList.getBookstatus().equals("Unbooked")) {

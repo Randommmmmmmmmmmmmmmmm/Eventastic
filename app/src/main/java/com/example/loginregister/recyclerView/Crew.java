@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Crew implements Serializable {
 
 
-    String crew_id;
+    int crew_id;
     String event_id;
     String name;
     String category;
@@ -18,7 +18,7 @@ public class Crew implements Serializable {
     String email;
     String notes;
 
-    public Crew(String crew_id , String event_id, String name, String category, String quantity, String progress, String phone, String email, String notes) {
+    public Crew(int crew_id , String event_id, String name, String category, String quantity, String progress, String phone, String email, String notes) {
         this.crew_id = crew_id;
         this.event_id = event_id;
         this.name = name;
@@ -32,11 +32,11 @@ public class Crew implements Serializable {
     }
 
 
-    public String getCrew_id() {
+    public int getCrew_id() {
         return crew_id;
     }
 
-    public void setCrew_id(String crew_id) {
+    public void setCrew_id(int crew_id) {
         this.crew_id = crew_id;
     }
 

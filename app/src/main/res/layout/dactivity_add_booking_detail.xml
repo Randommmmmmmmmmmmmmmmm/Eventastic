@@ -57,7 +57,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppinsmedium"
             android:text="Category"
-            android:textColor="#65E91E63"
+            android:textColor="#E91E63"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -133,7 +133,7 @@
 
             android:background="@drawable/edit_text_shape"
             android:hint="Payment"
-            android:inputType=""
+            android:inputType="number"
             android:padding="12dp"
 
             android:textColorHint="#65E91E63"
@@ -148,7 +148,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppinsmedium"
             android:text="Status"
-            android:textColor="#65E91E63"
+            android:textColor="#E91E63"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -207,6 +207,7 @@
             android:inputType="phone"
 
             android:padding="12dp"
+            android:textColorHint="#65E91E63"
             app:layout_constraintTop_toBottomOf="@+id/tv_contactDetails"
             tools:layout_editor_absoluteX="40dp" />
 
@@ -221,6 +222,7 @@
             android:inputType="textEmailAddress"
 
             android:padding="12dp"
+            android:textColorHint="#65E91E63"
             app:layout_constraintTop_toBottomOf="@+id/it_bookingContactPhoneNumber"
             tools:layout_editor_absoluteX="40dp" />
 

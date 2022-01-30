@@ -93,7 +93,10 @@ public class InsertEventDetails extends AppCompatActivity {
                 data[4] = eventDate.getText().toString();
                 data[5] = eventTime.getText().toString();
                 data[6] = eventBudget.getText().toString();
-                PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Event/updateEvent.php", "POST", field, data);
+                // todo host
+//                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Event/updateEvent.php", "POST", field, data);
+                //lepak server
+                PutData putData = new PutData("https://eventastic.lepak.xyz/Event/updateEvent.php", "POST", field, data);
 
                 if (putData.startPut()) {
 
@@ -135,7 +138,10 @@ public class InsertEventDetails extends AppCompatActivity {
                 data[0] = username;
                 data[1] = "list";
                 data[2] = String.valueOf(id);
-                PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Event/updateEvent.php", "POST", field, data);
+                // todo host
+//                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Event/updateEvent.php", "POST", field, data);
+                //lepak server
+                PutData putData = new PutData("https://eventastic.lepak.xyz/Event/updateEvent.php", "POST", field, data);
 
                 if (putData.startPut()) {
 
@@ -149,7 +155,6 @@ public class InsertEventDetails extends AppCompatActivity {
 
 
                                 JSONObject json = new JSONObject(result);
-                                Toast.makeText(getApplicationContext(), "result", Toast.LENGTH_SHORT).show();
                                 eventName.setText(json.getString("event_name"));
                                 eventDate.setText(json.getString("event_date"));
                                 eventTime.setText(json.getString("event_time"));

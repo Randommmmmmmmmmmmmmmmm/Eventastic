@@ -1,5 +1,6 @@
 package com.example.loginregister.GAds;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.loginregister.R;
+import com.example.loginregister.recyclerView.Ads;
+import com.example.loginregister.recyclerView.Booking;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 
@@ -22,6 +25,11 @@ public class AddAdsDetail extends AppCompatActivity {
     RadioButton radioButtonAdsCategory,radioButtonAdsStatus;
     Button btn_saveChangesAds;
     int id;
+    String process="insert";
+    String username;
+    Intent extra;
+    Ads currentAds;
+    int adsid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +43,45 @@ public class AddAdsDetail extends AppCompatActivity {
         rg_adsCategory = findViewById(R.id.rg_adsCategory);
         rg_Ads_status = findViewById(R.id.rg_Ads_status);
 
-        if(savedInstanceState==null) {
-            Bundle extra = getIntent().getExtras();
-            id = extra.getInt("id");
-        }else{
-            id=(int)savedInstanceState.getSerializable("id");
+        //        if(savedInstanceState==null) {
+
+        extra = getIntent();
+        id = extra.getIntExtra("id",0);
+
+
+
+
+//            Toast.makeText(getApplicationContext(),id,Toast.LENGTH_SHORT).show();
+
+
+        username = extra.getStringExtra("username");
+
+        if(extra.hasExtra("edit")){
+
+            process = "update";
+            currentAds = (Ads) getIntent().getSerializableExtra("edit");
+            adsid = currentAds.getAds_id();
+
+            et_adsName.setText(currentAds.getAname());
+            et_adsNotes.setText(currentAds.getNotes());
+
+            switch(currentAds.getAcategory()){
+                case "Poster": rg_adsCategory.check(rg_adsCategory.getChildAt(0).getId()); break;
+                case "Foods Catering": rg_adsCategory.check(rg_adsCategory.getChildAt(1).getId()); break;
+                case "Banner": rg_adsCategory.check(rg_adsCategory.getChildAt(2).getId()); break;
+                case "Invitation Card": rg_adsCategory.check(rg_adsCategory.getChildAt(3).getId()); break;
+                case "Others": rg_adsCategory.check(rg_adsCategory.getChildAt(4).getId()); break;
+            }
+            switch(currentAds.getAstatus()){
+                case "Finished": rg_Ads_status.check(rg_Ads_status.getChildAt(0).getId()); break;
+                case "Not Finished": rg_Ads_status.check(rg_Ads_status.getChildAt(1).getId()); break;
+
+            }
+
+        }else if(currentAds==null){
+
+            adsid = 0;
+
         }
 
 
@@ -49,7 +91,7 @@ public class AddAdsDetail extends AppCompatActivity {
 
                 //for radio group
 
-                String username, name, category, notes, adsStatus ;
+                String name, category, notes, adsStatus ;
 
                 int radioIdAdsCategory = rg_adsCategory.getCheckedRadioButtonId();
                 radioButtonAdsCategory = findViewById(radioIdAdsCategory);
@@ -90,10 +132,13 @@ public class AddAdsDetail extends AppCompatActivity {
                             data[1] = category;
                             data[2] = notes;
                             data[3] = adsStatus;
-                            data[4] = "insert";
-                            data[5] = "fanae";
+                            data[4] = process;
+                            data[5] = username;
                             data[6] = String.valueOf(id);
-                            PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Ads/AdsListView.php", "POST", field, data);
+                            // todo host
+//                            PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Ads/AdsListView.php", "POST", field, data);
+                            //lepak server
+                            PutData putData = new PutData("https://eventastic.lepak.xyz/Ads/AdsListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

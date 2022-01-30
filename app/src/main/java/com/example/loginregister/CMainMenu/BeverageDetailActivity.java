@@ -217,6 +217,7 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 intent = new Intent(BeverageDetailActivity.this, BookingActivity.class);
                 intent.putExtra("id", id);
                 intent.putExtra("username", username);
+                intent.putExtra("type", "all");
                 startActivity(intent);
                 break;
                 case R.id.nav_venue:
@@ -227,16 +228,21 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 case R.id.nav_ads:
                 intent = new Intent(BeverageDetailActivity.this, AdsActivity.class);
                 intent.putExtra("id", id);
+                    intent.putExtra("username", username);
+                    intent.putExtra("type", "all");
                 startActivity(intent);
                 break;
                 case R.id.nav_gc:
                 intent = new Intent(BeverageDetailActivity.this, GuestCrew.class);
                 intent.putExtra("id", id);
                 intent.putExtra("username", username);
+                intent.putExtra("type", "all");
                 startActivity(intent);
                 break;
                 case R.id.nav_dashboard:
                 intent = new Intent(BeverageDetailActivity.this, Dashboard.class);
+                intent.putExtra("id", id);
+                intent.putExtra("username", username);
                 startActivity(intent);
                 break;
                 case R.id.nav_log_out:
@@ -256,17 +262,21 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 i = new Intent(this, BookingActivity.class);
                 i.putExtra("id", id);
                 i.putExtra("username", username);
+                i.putExtra("type", "all");
                 startActivity(i);
                 break;
             case R.id.c2:
                 i = new Intent(this,GuestCrew.class);
                 i.putExtra("id", id);
                 i.putExtra("username", username);
+                i.putExtra("type", "all");
                 startActivity(i);
                 break;
             case R.id.c3:
                 i = new Intent(this,AdsActivity.class);
                 i.putExtra("id", id);
+                i.putExtra("username", username);
+                i.putExtra("type", "all");
                 startActivity(i);
                 break;
             case R.id.c4:
@@ -276,6 +286,8 @@ public class BeverageDetailActivity extends AppCompatActivity implements View.On
                 break;
             case R.id.c5:
                 i = new Intent(this,Dashboard.class);
+                i.putExtra("id", id);
+                i.putExtra("username", username);
                 startActivity(i);
                 break;
         }

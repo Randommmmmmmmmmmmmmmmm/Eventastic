@@ -23,7 +23,7 @@
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
             android:text="@string/crew_details"
-            android:textColor="#359783"
+            android:textColor="#E91E63"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -42,6 +42,7 @@
             android:inputType=""
 
             android:padding="12dp"
+            android:textColorHint="#65E91E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_crewDetails" />
@@ -50,10 +51,12 @@
             android:id="@+id/categoryCrew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="16dp"
             android:background="@color/white"
             android:fontFamily="@font/poppinsmedium"
             android:text="@string/category"
+            android:textColor="#E91E63"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/et_nameCrew"
             app:layout_constraintTop_toBottomOf="@+id/et_nameCrew" />
@@ -123,6 +126,7 @@
             android:inputType="number"
             android:padding="12dp"
 
+            android:textColorHint="#65E91E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rg_categoryCrew" />
@@ -131,10 +135,12 @@
             android:id="@+id/progressCrew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="16dp"
             android:background="@color/white"
             android:fontFamily="@font/poppinsmedium"
-            android:text="Progress"
+            android:text="Confirmation"
+            android:textColor="#E91E63"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/et_quantityCrew"
             app:layout_constraintTop_toBottomOf="@+id/et_quantityCrew" />
@@ -153,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsbold"
-                android:text="@string/confirm"
+                android:text="Yes"
                 android:textColor="@color/colorAccent" />
 
             <RadioButton
@@ -161,7 +167,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsbold"
-                android:text="@string/not_confirm"
+                android:text="No"
                 android:textColor="#B11E1E" />
 
         </RadioGroup>
@@ -173,7 +179,7 @@
             android:layout_marginTop="46dp"
             android:fontFamily="@font/poppinsmedium"
             android:text="@string/contact_details_optional"
-            android:textColor="#359783"
+            android:textColor="#E91E63"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/rg_progressCrew"
             app:layout_constraintTop_toBottomOf="@+id/rg_progressCrew" />
@@ -190,6 +196,7 @@
             android:inputType="number"
             android:padding="12dp"
 
+            android:textColorHint="#65E91E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/contactDetails" />
@@ -206,6 +213,7 @@
             android:inputType="textEmailAddress"
             android:padding="12dp"
 
+            android:textColorHint="#65E91E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_phoneNoGuestCrew" />
@@ -222,6 +230,7 @@
             android:inputType="number"
             android:padding="12dp"
 
+            android:textColorHint="#65E91E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_emailGuestCrew" />
@@ -236,7 +245,8 @@
             android:fontFamily="@font/poppinsbold"
             android:hapticFeedbackEnabled="true"
             android:text="Save Changes"
-            app:backgroundTint="#359783"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#E91E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_notesGuestCrew" />

@@ -1,4 +1,4 @@
-package com.example.loginregister.DBooking;
+package com.example.loginregister.HDashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,9 +9,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
+import com.example.loginregister.EGuestCrew.Guest.GuestCrewInsertGuest;
 import com.example.loginregister.R;
-import com.example.loginregister.recyclerView.Booking;
-import com.example.loginregister.recyclerView.adapter.bookingRecycleView;
+import com.example.loginregister.recyclerView.Guest;
+import com.example.loginregister.recyclerView.adapter.GuestRecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
@@ -22,23 +23,21 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookingActivity extends AppCompatActivity {
+public class GuestDashboard extends AppCompatActivity {
 
     int id;
     String username;
     String type;
+
+    FloatingActionButton fbtn_createGuest;
     LinearLayoutManager linearLayoutManager;
     RecyclerView recyclerView;
-    List<Booking> allBookingInfor;
-    public FloatingActionButton fbtn_createBooking;
-
+    List<Guest> allGuestInfor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dactivity_booking);
-
-
+        setContentView(R.layout.hactivity_guest_dashboard);
 
         if(savedInstanceState==null) {
             Bundle extra = getIntent().getExtras();
@@ -51,45 +50,32 @@ public class BookingActivity extends AppCompatActivity {
             type=(String)savedInstanceState.getSerializable("type");
         }
 
-
         recyclerView = findViewById(R.id. recycler_view);
 
-        linearLayoutManager = new LinearLayoutManager(BookingActivity.this);
+        linearLayoutManager = new LinearLayoutManager(GuestDashboard.this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
-        allBookingInfor = getallBookingInfor();
-//        try {
-//            allBookingInfor = getallBookingInfor();
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
+        allGuestInfor = getallGuestInfor();
 
+        fbtn_createGuest = findViewById(R.id.fbtn_createGuest);
 
-        fbtn_createBooking =findViewById(R.id.fbtn_createBooking);
+        fbtn_createGuest.setOnClickListener(view1 -> {
+            Intent intent = new Intent(GuestDashboard.this, GuestCrewInsertGuest.class);
 
-        fbtn_createBooking.setOnClickListener(new View.OnClickListener() {
-            String name;
-            @Override
-            public void onClick(View view) {
+            intent.putExtra("id", id);
+            intent.putExtra("username", username);
 
-                Intent intent = new Intent(BookingActivity.this, AddBookingDetail.class);
-
-                intent.putExtra("id", id);
-                intent.putExtra("username", username);
-                startActivity(intent);
-
-
-
-            }
+            startActivity(intent);
         });
     }
-    private List<Booking> getallBookingInfor()  {
+
+    private List<Guest> getallGuestInfor()  {
 
 
-        List<Booking> allBooking = new ArrayList<Booking>();
-//        allBooking.add(new Booking(obj.getString("name"), obj.getString("category"), obj.getString("payment_status")));
-//        allBooking.add(new Booking("name","category","payment_status"));
+        List<Guest> allGuest = new ArrayList<Guest>();
+//        allGuest.add(new Guest(obj.getString("name"), obj.getString("category"), obj.getString("payment_status")));
+//        allGuest.add(new Guest("name","category","payment_status"));
         //letak putdata
         Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -102,7 +88,6 @@ public class BookingActivity extends AppCompatActivity {
                 field[2] = "event_id";
                 field[3] = "type";
 
-
                 //Creating array for data
                 String[] data = new String[4];
                 data[0] = username;
@@ -110,9 +95,9 @@ public class BookingActivity extends AppCompatActivity {
                 data[2] = String.valueOf(id);
                 data[3] = type;
                 // todo host
-//                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+//                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/GuestCrew/guestListView.php", "POST", field, data);
                 //lepak server
-                PutData putData = new PutData("https://eventastic.lepak.xyz/Booking/BookingListView.php", "POST", field, data);
+                PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/guestListView.php", "POST", field, data);
 
                 if (putData.startPut()) {
 
@@ -128,18 +113,18 @@ public class BookingActivity extends AppCompatActivity {
 //                                JSONObject json = new JSONObject(result);
 //                                JSONArray array = json.getJSONArray("GetCitiesResult");
 
-                               System.out.println(result);
+                                System.out.println(result);
                                 JSONArray array = new JSONArray(result);
 
 
                                 for (int i = 0; i < array.length(); i++) {
                                     JSONObject obj = array.getJSONObject(i);
-                                    allBooking.add(new Booking(obj.getInt("booking_id"),obj.getString("event_id"),obj.getString("name"), obj.getString("category"),obj.getString("notes"),obj.getString("payment"), obj.getString("payment_status"), obj.getString("phone"), obj.getString("email")));
-//                                    allBooking.add(new Booking("name","category","payment_status"));
-//                                    Toast.makeText(getApplicationContext(),obj.getString("booking_id"), Toast.LENGTH_SHORT).show();
+                                    allGuest.add(new Guest(obj.getInt("guest_id"),obj.getString("event_id"),obj.getString("name"), obj.getString("gender"),obj.getString("category"),obj.getString("quantity"),obj.getString("progress"),  obj.getString("phone"), obj.getString("email"), obj.getString("notes")));
+//                                    allGuest.add(new Guest("name","category","payment_status"));
+//                                    Toast.makeText(getApplicationContext(),obj.getString("Guest_id"), Toast.LENGTH_SHORT).show();
                                 }
-                                bookingRecycleView bookingRecycleView = new bookingRecycleView(BookingActivity.this,allBookingInfor,username,id);
-                                recyclerView.setAdapter(bookingRecycleView);
+                                GuestRecyclerView GuestRecyclerView = new GuestRecyclerView(GuestDashboard.this,allGuestInfor,username);
+                                recyclerView.setAdapter(GuestRecyclerView);
 //                                recyclerView.notify();
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -153,7 +138,8 @@ public class BookingActivity extends AppCompatActivity {
             }
         });
 
-        return allBooking;
+        return allGuest;
 
     }
-}
+
+    }

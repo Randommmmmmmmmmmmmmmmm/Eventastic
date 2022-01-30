@@ -31,7 +31,8 @@ public class AdsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<Ads> allAdsInfor;
     FloatingActionButton fbtn_createAds;
-
+    String username;
+    String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +43,12 @@ public class AdsActivity extends AppCompatActivity {
         if(savedInstanceState==null) {
             Bundle extra = getIntent().getExtras();
             id = extra.getInt("id");
+            username = extra.getString("username");
+            type = extra.getString("type");
         }else{
             id=(int)savedInstanceState.getSerializable("id");
+            username=(String)savedInstanceState.getSerializable("username");
+            type=(String)savedInstanceState.getSerializable("type");
         }
 
 
@@ -71,7 +76,7 @@ public class AdsActivity extends AppCompatActivity {
                 Intent intent = new Intent(AdsActivity.this, AddAdsDetail.class);
 
                 intent.putExtra("id", id);
-
+                intent.putExtra("username", username);
                 startActivity(intent);
 
 
@@ -91,17 +96,22 @@ public class AdsActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                String[] field = new String[3];
+                String[] field = new String[4];
                 field[0] = "username";
                 field[1] = "process";
                 field[2] = "event_id";
+                field[3] = "type";
 
                 //Creating array for data
-                String[] data = new String[3];
+                String[] data = new String[4];
                 data[0] = "fanae";
                 data[1] = "list";
                 data[2] = String.valueOf(id);
-                PutData putData = new PutData("http://192.168.43.16/API-Eventastic/Ads/AdsListView.php", "POST", field, data);
+                data[3] = type;
+                // todo host
+//                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Ads/AdsListView.php", "POST", field, data);
+                //lepak server
+                PutData putData = new PutData("https://eventastic.lepak.xyz/Ads/AdsListView.php", "POST", field, data);
 
                 if (putData.startPut()) {
 
@@ -120,11 +130,11 @@ public class AdsActivity extends AppCompatActivity {
 
                                 for (int i = 0; i < array.length(); i++) {
                                     JSONObject obj = array.getJSONObject(i);
-                                    allAds.add(new Ads(obj.getString("name"), obj.getString("category"), obj.getString("status")));
+                                    allAds.add(new Ads(obj.getInt("ads_id"),obj.getString("event_id"),obj.getString("name"), obj.getString("category"), obj.getString("status"), obj.getString("notes")));
 //                                    allAds.add(new Ads("name","category","status"));
 //                                    Toast.makeText(getApplicationContext(), String.valueOf(allAds.get(i)), Toast.LENGTH_SHORT).show();
                                 }
-                                adsRecycleView adsRecycleView = new adsRecycleView(AdsActivity.this,allAdsInfor);
+                                adsRecycleView adsRecycleView = new adsRecycleView(AdsActivity.this,allAdsInfor,username);
                                 recyclerView.setAdapter(adsRecycleView);
 //                                recyclerView.notify();
                             } catch (JSONException e) {

@@ -5,7 +5,7 @@ import java.io.Serializable;
 //Guest recyclerview
 public class Guest implements Serializable {
 
-    String guestid;
+    int guestid;
     String eventid;
     String name;
     String gender;
@@ -16,7 +16,9 @@ public class Guest implements Serializable {
     String email;
     String notes;
 
-    public Guest(String guestid, String eventid, String name, String gender, String category, String quantity, String progress, String phone, String email, String notes) {
+
+
+    public Guest(int guestid, String eventid, String name, String gender, String category, String quantity, String progress, String phone, String email, String notes) {
         this.guestid = guestid;
         this.eventid = eventid;
         this.name = name;
@@ -30,11 +32,11 @@ public class Guest implements Serializable {
 
     }
 
-    public String getGuestid() {
+    public int getGuestid() {
         return guestid;
     }
 
-    public void setGuestid(String guestid) {
+    public void setGuestid(int guestid) {
         this.guestid = guestid;
     }
 
