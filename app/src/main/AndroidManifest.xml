@@ -12,8 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegister"
         android:usesCleartextTraffic="true">
-        <activity android:name=".HDashboard.CrewDashboard"></activity>
-        <activity android:name=".HDashboard.GuestDashboard" />
+        <activity android:name=".HDashboard.CrewDashboard"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity android:name=".HDashboard.GuestDashboard"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".FVenue.VenueActivity"
             android:exported="true"

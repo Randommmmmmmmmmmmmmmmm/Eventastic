@@ -28,11 +28,13 @@ public class adsRecycleView extends RecyclerView.Adapter<adsRecycleView.AdsViewH
     public List<Ads> adsList;
     private Context context;
     String username;
+    int id;
 
-    public adsRecycleView(Context context, List<Ads> adsList,String username) {
+    public adsRecycleView(Context context, List<Ads> adsList,String username,int id) {
         this.context=context;
         this.adsList= adsList;
         this.username= username;
+        this.id= id;
     }
 
     @NonNull

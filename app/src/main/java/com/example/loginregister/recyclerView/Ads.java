@@ -4,13 +4,12 @@ import java.io.Serializable;
 
 //Ads recyclerview
 public class Ads implements Serializable {
-      int ads_id;
+
+    int ads_id;
     String aname;
     String acategory;
     String astatus;
-
     String notes;
-
     String eventid;
 
 

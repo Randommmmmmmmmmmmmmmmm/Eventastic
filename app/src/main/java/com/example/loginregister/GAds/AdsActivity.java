@@ -104,7 +104,7 @@ public class AdsActivity extends AppCompatActivity {
 
                 //Creating array for data
                 String[] data = new String[4];
-                data[0] = "fanae";
+                data[0] = username;
                 data[1] = "list";
                 data[2] = String.valueOf(id);
                 data[3] = type;
@@ -134,7 +134,7 @@ public class AdsActivity extends AppCompatActivity {
 //                                    allAds.add(new Ads("name","category","status"));
 //                                    Toast.makeText(getApplicationContext(), String.valueOf(allAds.get(i)), Toast.LENGTH_SHORT).show();
                                 }
-                                adsRecycleView adsRecycleView = new adsRecycleView(AdsActivity.this,allAdsInfor,username);
+                                adsRecycleView adsRecycleView = new adsRecycleView(AdsActivity.this,allAdsInfor,username,id);
                                 recyclerView.setAdapter(adsRecycleView);
 //                                recyclerView.notify();
                             } catch (JSONException e) {
