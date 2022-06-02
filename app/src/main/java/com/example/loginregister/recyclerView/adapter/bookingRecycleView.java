@@ -90,8 +90,8 @@ public class bookingRecycleView extends RecyclerView.Adapter<bookingRecycleView.
                             data[0] = "delete";
                             data[1] = String.valueOf(bookingList.get(position).getBookingid());
                             // todo host
-//                            PutData putData = new PutData("http://"+context.getString(R.string.localhost)+"/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
-                            PutData putData = new PutData("https://eventastic.lepak.xyz/Booking/BookingListView.php", "POST", field, data);
+                            PutData putData = new PutData("http://"+context.getString(R.string.localhost)+"/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+//                            PutData putData = new PutData("https://eventastic.lepak.xyz/Booking/BookingListView.php", "POST", field, data);
 
                             if (putData.startPut()) {
 

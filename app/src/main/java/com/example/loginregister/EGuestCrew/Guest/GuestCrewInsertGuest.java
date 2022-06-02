@@ -151,9 +151,9 @@ public class GuestCrewInsertGuest extends AppCompatActivity {
                         data[10] = String.valueOf(id);
                         data[11] = guestid;
                         // todo host
-//                        PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/GuestCrew/guestListView.php", "POST", field, data);
+                        PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/GuestCrew/guestListView.php", "POST", field, data);
                         //lepak server
-                        PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/guestListView.php", "POST", field, data);
+//                        PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/guestListView.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

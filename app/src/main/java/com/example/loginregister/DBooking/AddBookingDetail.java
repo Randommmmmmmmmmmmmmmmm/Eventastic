@@ -163,9 +163,9 @@ public class AddBookingDetail extends AppCompatActivity {
                             data[9] = String.valueOf(id);
                             data[10] = String.valueOf(bookingid);
                             // todo host
-//                            PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
+                            PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Booking/BookingListView.php", "POST", field, data);
                             //lepak server
-                            PutData putData = new PutData("https://eventastic.lepak.xyz/Booking/BookingListView.php", "POST", field, data);
+//                            PutData putData = new PutData("https://eventastic.lepak.xyz/Booking/BookingListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

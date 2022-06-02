@@ -94,9 +94,9 @@ public class InsertEventDetails extends AppCompatActivity {
                 data[5] = eventTime.getText().toString();
                 data[6] = eventBudget.getText().toString();
                 // todo host
-//                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Event/updateEvent.php", "POST", field, data);
+                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Event/updateEvent.php", "POST", field, data);
                 //lepak server
-                PutData putData = new PutData("https://eventastic.lepak.xyz/Event/updateEvent.php", "POST", field, data);
+//                PutData putData = new PutData("https://eventastic.lepak.xyz/Event/updateEvent.php", "POST", field, data);
 
                 if (putData.startPut()) {
 
@@ -139,9 +139,9 @@ public class InsertEventDetails extends AppCompatActivity {
                 data[1] = "list";
                 data[2] = String.valueOf(id);
                 // todo host
-//                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Event/updateEvent.php", "POST", field, data);
+                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Event/updateEvent.php", "POST", field, data);
                 //lepak server
-                PutData putData = new PutData("https://eventastic.lepak.xyz/Event/updateEvent.php", "POST", field, data);
+//                PutData putData = new PutData("https://eventastic.lepak.xyz/Event/updateEvent.php", "POST", field, data);
 
                 if (putData.startPut()) {
 

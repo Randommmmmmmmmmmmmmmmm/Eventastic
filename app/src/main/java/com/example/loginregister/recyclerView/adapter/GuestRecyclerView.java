@@ -80,8 +80,8 @@ public class GuestRecyclerView extends RecyclerView.Adapter<GuestRecyclerView.Gu
                             data[0] = "delete";
                             data[1] = String.valueOf(GuestList.get(position).getGuestid());
                             // todo host
-//                            PutData putData = new PutData("http://"+context.getString(R.string.localhost)+"/API-Eventastic/GuestCrew/guestListView.php", "POST", field, data);
-                            PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/guestListView.php", "POST", field, data);
+                            PutData putData = new PutData("http://"+context.getString(R.string.localhost)+"/API-Eventastic/GuestCrew/guestListView.php", "POST", field, data);
+//                            PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/guestListView.php", "POST", field, data);
 
                             if (putData.startPut()) {
 

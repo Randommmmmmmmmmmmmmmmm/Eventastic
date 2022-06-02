@@ -52,7 +52,7 @@
     <string name="email_address">Email Address</string>
     <string name="address">Address</string>
     <string name="title_activity_venue">venue</string>
-    <string name="localhost">192.168.234.31</string>
+    <string name="localhost">192.168.101.31</string>
     <string name="x">sdsds</string>
 
 </resources>

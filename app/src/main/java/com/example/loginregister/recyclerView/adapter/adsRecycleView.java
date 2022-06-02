@@ -84,8 +84,8 @@ public class adsRecycleView extends RecyclerView.Adapter<adsRecycleView.AdsViewH
                             data[0] = "delete";
                             data[1] = String.valueOf(adsList.get(position).getAds_id());
                             // todo host
-//                            PutData putData = new PutData("http://"+context.getString(R.string.localhost)+"/API-Eventastic/Ads/AdsListView.php", "POST", field, data);
-                            PutData putData = new PutData("https://eventastic.lepak.xyz/Ads/AdsListView.php", "POST", field, data);
+                            PutData putData = new PutData("http://"+context.getString(R.string.localhost)+"/API-Eventastic/Ads/AdsListView.php", "POST", field, data);
+//                            PutData putData = new PutData("https://eventastic.lepak.xyz/Ads/AdsListView.php", "POST", field, data);
 
                             if (putData.startPut()) {
 

@@ -180,9 +180,9 @@ public class Dashboard extends AppCompatActivity {
                 data[0] = username;
                 data[1] = String.valueOf(id);
                 // todo host
-//                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Dashboard/dashboard.php", "POST", field, data);
+                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Dashboard/dashboard.php", "POST", field, data);
                 //lepak server
-                PutData putData = new PutData("https://eventastic.lepak.xyz/Dashboard/dashboard.php", "POST", field, data);
+//                PutData putData = new PutData("https://eventastic.lepak.xyz/Dashboard/dashboard.php", "POST", field, data);
 
                 if (putData.startPut()) {
 

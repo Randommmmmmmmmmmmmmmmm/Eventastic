@@ -75,9 +75,9 @@ public class SignUp extends AppCompatActivity {
                             data[2] = password;
                             data[3] = email;
                             // todo host
-//                            PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/signup.php", "POST", field, data);
+                            PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/signup.php", "POST", field, data);
                             //lepak server
-                            PutData putData = new PutData("https://eventastic.lepak.xyz/signup.php", "POST", field, data);
+//                            PutData putData = new PutData("https://eventastic.lepak.xyz/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);

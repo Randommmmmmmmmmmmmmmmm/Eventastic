@@ -97,9 +97,9 @@ public class CrewDashboard extends AppCompatActivity {
                 data[2] = String.valueOf(id);
                 data[3] = type;
                 // todo host
-//                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
+                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
                 //lepak server
-                PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/crewListView.php", "POST", field, data);
+//                PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/crewListView.php", "POST", field, data);
 
                 if (putData.startPut()) {
 

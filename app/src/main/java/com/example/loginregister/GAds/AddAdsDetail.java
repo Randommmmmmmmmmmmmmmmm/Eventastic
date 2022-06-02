@@ -136,9 +136,9 @@ public class AddAdsDetail extends AppCompatActivity {
                             data[5] = username;
                             data[6] = String.valueOf(id);
                             // todo host
-//                            PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Ads/AdsListView.php", "POST", field, data);
+                            PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Ads/AdsListView.php", "POST", field, data);
                             //lepak server
-                            PutData putData = new PutData("https://eventastic.lepak.xyz/Ads/AdsListView.php", "POST", field, data);
+//                            PutData putData = new PutData("https://eventastic.lepak.xyz/Ads/AdsListView.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
 //                                    progressBar.setVisibility(View.GONE);

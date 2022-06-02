@@ -73,9 +73,9 @@ public class Login extends AppCompatActivity {
 
                             // todo host
                             //localhost
-//                            PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/login.php", "POST", field, data);
+                            PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/login.php", "POST", field, data);
                             //lepak server
-                            PutData putData = new PutData("https://eventastic.lepak.xyz/login.php", "POST", field, data);
+//                            PutData putData = new PutData("https://eventastic.lepak.xyz/login.php", "POST", field, data);
 
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {

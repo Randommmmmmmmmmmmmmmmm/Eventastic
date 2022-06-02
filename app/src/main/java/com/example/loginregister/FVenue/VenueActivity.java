@@ -86,9 +86,9 @@ public class VenueActivity extends AppCompatActivity {
                 data[0] = "UKM";
 
                 // todo host
-//                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Venue/VenueListView.php", "POST", field, data);
+                PutData putData = new PutData("http://"+getString(R.string.localhost)+"/API-Eventastic/Venue/VenueListView.php", "POST", field, data);
                 //lepak server
-                PutData putData = new PutData("https://eventastic.lepak.xyz/Venue/VenueListView.php", "POST", field, data);
+//                PutData putData = new PutData("https://eventastic.lepak.xyz/Venue/VenueListView.php", "POST", field, data);
 
                 if (putData.startPut()) {
 

@@ -82,8 +82,8 @@ public class CrewRecyclerView extends RecyclerView.Adapter<CrewRecyclerView.Crew
                             data[0] = "delete";
                             data[1] = String.valueOf(CrewList.get(position).getCrew_id());
                             // todo host
-//                            PutData putData = new PutData("http://"+context.getString(R.string.localhost)+"/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
-                            PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/crewListView.php", "POST", field, data);
+                            PutData putData = new PutData("http://"+context.getString(R.string.localhost)+"/API-Eventastic/GuestCrew/crewListView.php", "POST", field, data);
+//                            PutData putData = new PutData("https://eventastic.lepak.xyz/GuestCrew/crewListView.php", "POST", field, data);
 
                             if (putData.startPut()) {
 
